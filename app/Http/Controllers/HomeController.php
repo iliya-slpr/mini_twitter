@@ -23,6 +23,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+//        dd(auth()->user()->following()->toSql());
+//        return view('home');
     }
 }
