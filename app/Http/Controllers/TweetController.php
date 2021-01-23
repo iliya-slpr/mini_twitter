@@ -65,6 +65,7 @@ class TweetController extends Controller
         }else{
             if($tweet->user_id == auth()->user()->id){
                 $tweet->delete();
+                Tweet::where("retweeted" , $request->tweet_id)->delete();
                 $result = ["status" => true , "message" => "Successfully Deleted"];
             }else{
                 $result = ["status" => false , "message" => "You Can't Delete this tweet"];
