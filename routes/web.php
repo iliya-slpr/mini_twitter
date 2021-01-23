@@ -31,6 +31,10 @@ Route::prefix("api")->middleware('auth:api')->group(function (){
 
     Route::post("/tweets/likeOrNot",[App\Http\Controllers\TweetController::class, 'likeOrNot']);
     Route::get("/tweets/getLikes",[App\Http\Controllers\TweetController::class, 'getLikes']);
+
+    Route::get("/users/get" ,[App\Http\Controllers\UserController::class, 'getUser']);
+    Route::post("/users/edit" ,[App\Http\Controllers\UserController::class, 'edit']);
+    Route::post("/users/followOrNot" ,[App\Http\Controllers\UserController::class, 'followOrNot']);
 });
 
 
