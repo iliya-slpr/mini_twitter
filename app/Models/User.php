@@ -42,7 +42,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-
+    protected $appends = ['am_i_followed'];
 
     public function following()
     {
@@ -62,6 +62,11 @@ class User extends Authenticatable
     public function tweets()
     {
         return $this->hasMany(Tweet::class);
+    }
+
+    public function getAmIFollowedAttribute()
+    {
+        return $this->followers()->get()->contains("id" ,"==",auth()->user()->id);
     }
 
 }
