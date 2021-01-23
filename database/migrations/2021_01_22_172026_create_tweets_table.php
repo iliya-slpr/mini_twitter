@@ -17,6 +17,7 @@ class CreateTweetsTable extends Migration
             $table->id();
             $table->foreignId("user_id")->constrained();
             $table->text("body");
+            $table->bigInteger("retweeted")->default(0);
             $table->timestamps();
         });
     }

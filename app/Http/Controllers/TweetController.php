@@ -42,6 +42,20 @@ class TweetController extends Controller
 
         return response()->json(["status" => true , "message" => "Successfully Tweeted"]);
     }
+    public function retweet(Request $request){
+        $tweet = Tweet::find($request->tweet_id);
+        if(is_null($tweet)){
+            $result = ["status" => false , "message" => "Tweet Not Found!"];
+        }else{
+            $request->user()->tweets()->create([
+                'user_id' => $request->user()->id,
+                'body' => $tweet->body,
+                'retweeted' => $tweet->id
+            ]);
+
+            return response()->json(["status" => true , "message" => "Successfully Retweeted"]);
+        }
+    }
 
     public function delete(Request $request)
     {
