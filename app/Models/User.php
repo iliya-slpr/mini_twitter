@@ -66,7 +66,9 @@ class User extends Authenticatable  implements JWTSubject
 
     public function getAmIFollowedAttribute()
     {
-        return $this->followers()->get()->contains("id" ,"==",auth()->user()->id);
+        if(!is_null(auth()->user()))
+            return $this->followers()->get()->contains("id" ,"==",auth()->user()->id);
+        return false;    
     }
 
     /**
