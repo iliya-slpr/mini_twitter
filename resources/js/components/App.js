@@ -10,7 +10,8 @@ import {
 } from "react-router-dom";
 import Login from "./Login/Login";
 import Register from "./Register/Register";
-import Home from './Home/Home'
+import Home from "./Home/Home";
+import Profile from "./Profile/Profile";
 class App extends Component {
     constructor(props) {
         super(props);
@@ -36,30 +37,30 @@ class App extends Component {
     render() {
         return (
             <Router>
-                
-                    <Switch>
-                        <Route path="/" exact>
-                                
-                        </Route>
-                        <Route path="/login" exact>
-                            {this.state.isAuth ? (
-                                <Redirect to="/home" />
-                            ) : (
-                                <Login />
-                            )}
-                        </Route>
-                        <Route path="/register" exact>
-                            {this.state.isAuth ? (
-                                <Redirect to="/home" />
-                            ) : (
-                                <Register />
-                            )}
-                        </Route>
-                        <Route path="/home">
-                            <Home  user={this.state.user}/>
-                        </Route>
-                    </Switch>
-                
+                <Switch>
+                    <Route path="/" exact>
+                        home
+                    </Route>
+                    <Route path="/login" exact>
+                        {this.state.isAuth ? (
+                            <Redirect to="/home" />
+                        ) : (
+                            <Login />
+                        )}
+                    </Route>
+                    <Route path="/register" exact>
+                        {this.state.isAuth ? (
+                            <Redirect to="/home" />
+                        ) : (
+                            <Register />
+                        )}
+                    </Route>
+                    <Route path="/home">
+                        <Home user={this.state.user} />
+                        <Link to="/user/4">fff</Link>
+                    </Route>
+                    <Route path="/user/:id" component={Profile} />
+                </Switch>
             </Router>
         );
     }
