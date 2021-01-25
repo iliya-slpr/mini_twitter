@@ -1,0 +1,42 @@
+.body{
+    background-color: transparent;
+    border-bottom:1px solid #38444d;
+    padding: 1em 3em;
+}
+
+.body:hover{
+    background-color: #1c2b3a;
+}
+.title{
+    color:white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 1em 1em;
+}
+
+.like{
+    font-size: 1em;
+    color: white;
+}
+
+
+.retweet{
+    font-size: 1.3em;
+    color: white;
+}
+.liked{
+    font-size: 1.3em;
+    color: rgb(204, 0, 0);
+}
+
+.retweeted{
+    font-size: 1.3em;
+    color: rgb(0, 119, 6);
+}

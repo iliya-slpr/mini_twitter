@@ -36,10 +36,10 @@ class App extends Component {
     render() {
         return (
             <Router>
-                <div className="container">
+                
                     <Switch>
                         <Route path="/" exact>
-                            {/* {console.log(this.state.isAuth)} */}
+                                
                         </Route>
                         <Route path="/login" exact>
                             {this.state.isAuth ? (
@@ -56,10 +56,10 @@ class App extends Component {
                             )}
                         </Route>
                         <Route path="/home">
-                            <Home />
+                            <Home  user={this.state.user}/>
                         </Route>
                     </Switch>
-                </div>
+                
             </Router>
         );
     }

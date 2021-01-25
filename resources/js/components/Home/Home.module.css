@@ -3,3 +3,11 @@
     bottom: 2em;
     right: 2em;
 }
+.main{
+    background-color: #15202b;
+}
+
+.border{
+    border: 1px solid #38444d;
+    padding: 0;
+}
