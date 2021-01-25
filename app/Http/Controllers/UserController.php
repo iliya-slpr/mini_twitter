@@ -9,7 +9,13 @@ class UserController extends Controller
 {
     public function getUser(Request $request)
     {
-        $user = User::find($request->user_id);
+        $user = User::where('id',$request->user_id)
+            ->withCount('following')
+            ->withCount('followers')
+            ->first();
+
+        $user->tweets = $user->tweets()->latest()->get();
+
         if(is_null($user)){
             $result = ["status" => false , "message" => "User Not Found!"];
         }else{
