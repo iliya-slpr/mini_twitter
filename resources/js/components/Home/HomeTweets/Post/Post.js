@@ -9,6 +9,28 @@ import Card from "react-bootstrap/Card";
 import classes from "./Post.module.css";
 
 class Post extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { tweet_id: this.props.id , liked: this.props.liked};
+        this.likeHandler = this.likeHandler.bind(this);
+        
+    }
+    likeHandler() {
+        this.setState((prevState)=>({liked: !prevState.liked}));
+        console.log(this.state.tweet_id);
+        axios
+            .post(
+                "/api/tweets/likeOrNot",
+                { tweet_id: this.state.tweet_id },
+                {
+                    headers: {
+                        "X-Requested-With": "XMLHttpRequest",
+                        Authorization: `Bearer ${document.cookie.slice(6)}`,
+                    },
+                }
+            )
+            .then((res) => console.log(res));
+    }
     render() {
         return (
             <div className={classes.body}>
@@ -18,8 +40,17 @@ class Post extends Component {
                 </div>
                 <span className="text-white">{this.props.body}</span>
                 <div className={classes.footer}>
-                    <span className={classes.like}><i className="fas fa-retweet"></i></span>
-                    <span className={classes.retweet}><i className="far fa-heart"></i></span>
+                    <span
+                        className={
+                            this.state.liked ? classes.liked : classes.like
+                        }
+                        onClick={this.likeHandler}
+                    >
+                        <i className="far fa-heart"></i>
+                    </span>
+                    <span className={classes.retweet}>
+                        <i className="fas fa-retweet"></i>
+                    </span>
                 </div>
             </div>
         );

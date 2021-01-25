@@ -2572,7 +2572,9 @@ var HomeTweets = /*#__PURE__*/function (_Component) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Post_Post__WEBPACK_IMPORTED_MODULE_4__.default, {
           body: tweet.body,
           author: tweet.user.name,
-          time: tweet.created_at
+          time: tweet.created_at,
+          id: tweet.id,
+          liked: tweet.am_i_liked
         }, "".concat(index, "m"));
       });
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
@@ -2659,13 +2661,41 @@ var Post = /*#__PURE__*/function (_Component) {
 
   var _super = _createSuper(Post);
 
-  function Post() {
+  function Post(props) {
+    var _this;
+
     _classCallCheck(this, Post);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this, props);
+    _this.state = {
+      tweet_id: _this.props.id,
+      liked: _this.props.liked
+    };
+    _this.likeHandler = _this.likeHandler.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(Post, [{
+    key: "likeHandler",
+    value: function likeHandler() {
+      this.setState(function (prevState) {
+        return {
+          liked: !prevState.liked
+        };
+      });
+      console.log(this.state.tweet_id);
+      axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/tweets/likeOrNot", {
+        tweet_id: this.state.tweet_id
+      }, {
+        headers: {
+          "X-Requested-With": "XMLHttpRequest",
+          Authorization: "Bearer ".concat(document.cookie.slice(6))
+        }
+      }).then(function (res) {
+        return console.log(res);
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
@@ -2681,14 +2711,15 @@ var Post = /*#__PURE__*/function (_Component) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
           className: _Post_module_css__WEBPACK_IMPORTED_MODULE_3__.default.footer,
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
-            className: _Post_module_css__WEBPACK_IMPORTED_MODULE_3__.default.like,
+            className: this.state.liked ? _Post_module_css__WEBPACK_IMPORTED_MODULE_3__.default.liked : _Post_module_css__WEBPACK_IMPORTED_MODULE_3__.default.like,
+            onClick: this.likeHandler,
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("i", {
-              className: "fas fa-retweet"
+              className: "far fa-heart"
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
             className: _Post_module_css__WEBPACK_IMPORTED_MODULE_3__.default.retweet,
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("i", {
-              className: "far fa-heart"
+              className: "fas fa-retweet"
             })
           })]
         })]
@@ -7672,7 +7703,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "._1THQNR0ea_TRzo1ltsITrk{\r\n    background-color: transparent;\r\n    border-bottom:1px solid #38444d;\r\n    padding: 1em 3em;\r\n}\r\n\r\n._1THQNR0ea_TRzo1ltsITrk:hover{\r\n    background-color: #1c2b3a;\r\n}\r\n._21O5LiJ3Pu8rS4tcwz-CkB{\r\n    color:white;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\r\n}\r\n\r\n._2CiRn0UUdE1EH39_o6fDsC{\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-around;\r\n    padding: 1em 1em;\r\n}\r\n\r\n._14t986Co_wox2d_sz3ZviQ{\r\n    font-size: 1em;\r\n    color: white;\r\n}\r\n\r\n\r\n._1q-PY3FZson_AmuE5wO5wT{\r\n    font-size: 1.3em;\r\n    color: white;\r\n}\r\n.JzegpYrxCGZS7y4Z2gXMM{\r\n    font-size: 1.3em;\r\n    color: rgb(204, 0, 0);\r\n}\r\n\r\n._1JoB4-Hzq8_LvRpDfR0TD5{\r\n    font-size: 1.3em;\r\n    color: rgb(0, 119, 6);\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "._1THQNR0ea_TRzo1ltsITrk {\r\n    background-color: transparent;\r\n    border-bottom: 1px solid #38444d;\r\n    padding: 1em 3em;\r\n}\r\n\r\n._1THQNR0ea_TRzo1ltsITrk:hover {\r\n    background-color: #1c2b3a;\r\n}\r\n._21O5LiJ3Pu8rS4tcwz-CkB {\r\n    color: white;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\r\n}\r\n\r\n._2CiRn0UUdE1EH39_o6fDsC {\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-around;\r\n    padding: 1em 1em;\r\n}\r\n\r\n._14t986Co_wox2d_sz3ZviQ {\r\n    font-size: 1em;\r\n    color: white;\r\n    cursor: pointer;\r\n}\r\n._14t986Co_wox2d_sz3ZviQ:hover {\r\n    opacity: 0.8;\r\n}\r\n\r\n._1q-PY3FZson_AmuE5wO5wT {\r\n    font-size: 1.3em;\r\n    color: white;\r\n}\r\n.JzegpYrxCGZS7y4Z2gXMM {\r\n    font-size: 1em;\r\n    color: rgb(204, 0, 0);\r\n    cursor: pointer;\r\n}\r\n.JzegpYrxCGZS7y4Z2gXMM:hover {\r\n    opacity: 0.8;\r\n}\r\n._1JoB4-Hzq8_LvRpDfR0TD5 {\r\n    font-size: 1.3em;\r\n    color: rgb(0, 119, 6);\r\n}\r\n", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"body": "_1THQNR0ea_TRzo1ltsITrk",

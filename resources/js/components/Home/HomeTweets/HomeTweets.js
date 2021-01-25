@@ -19,6 +19,8 @@ class HomeTweets extends Component {
                 body={tweet.body}
                 author={tweet.user.name}
                 time={tweet.created_at}
+                id={tweet.id}
+                liked={tweet.am_i_liked}
             ></Post>
         ));
         return <div>{listOfTweets}</div>;
