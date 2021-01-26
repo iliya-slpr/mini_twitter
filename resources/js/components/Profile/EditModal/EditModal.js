@@ -12,7 +12,7 @@ class Dialog extends Component {
     submitHandler() {
         axios
             .post(
-                "/api/users/fedit",
+                "/api/users/edit",
                 { name: this.state.newUsername },
                 {
                     headers: {

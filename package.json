@@ -32,6 +32,7 @@
         "react-bootstrap": "^1.4.3",
         "react-drag-drawer": "^3.3.4",
         "react-router-dom": "^5.2.0",
+        "react-string-replace": "^0.4.4",
         "sweetalert": "^2.1.2"
     }
 }

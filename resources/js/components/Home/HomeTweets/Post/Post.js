@@ -8,6 +8,7 @@ import Card from "react-bootstrap/Card";
 import swal from "sweetalert";
 import classes from "./Post.module.css";
 import { Link } from "react-router-dom";
+const reactStringReplace = require("react-string-replace");
 
 class Post extends Component {
     constructor(props) {
@@ -64,7 +65,21 @@ class Post extends Component {
                     {this.props.time}
                     <br />
                 </div>
-                <span className="text-white">{this.props.body}</span>
+                <span className="text-white">
+                    {reactStringReplace(
+                        this.props.body,
+                        /#(\S*)/g,
+                        (match, i) => (
+                            <Link
+                                key={i}
+                                to={`/hash/${match}`}
+                                style={{ color: "#4b7095" }}
+                            >
+                                {"#" + match}
+                            </Link>
+                        )
+                    )}
+                </span>
                 <div className={classes.footer}>
                     <span
                         className={
