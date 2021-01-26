@@ -77,6 +77,7 @@ class Profile extends Component {
                 retweeted={tweet.retweeted}
                 author={this.state.user.name}
                 reload={reload}
+                isme={isMe}
             ></Post>
         ));
 
@@ -128,6 +129,7 @@ class Profile extends Component {
         );
     }
     componentDidMount() {
+        console.log(this.props.match.params.id);
         let userId = this.props.match.params.id;
 
         axios

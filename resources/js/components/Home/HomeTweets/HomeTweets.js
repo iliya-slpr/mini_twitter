@@ -25,7 +25,7 @@ class HomeTweets extends Component {
                     liked={tweet.am_i_liked}
                     authorId={tweet.user.id}
                     retweeted={tweet.retweeted}
-                    me_id={this.props.user.id}
+                    isme={this.props.user.id === tweet.user.id}
                 ></Post>
             );
         });

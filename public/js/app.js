@@ -2384,17 +2384,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _Modal_Modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Modal/Modal */ "./resources/js/components/Modal/Modal.js");
-/* harmony import */ var react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-bootstrap/Button */ "./node_modules/react-bootstrap/esm/Button.js");
-/* harmony import */ var react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-bootstrap/Container */ "./node_modules/react-bootstrap/esm/Container.js");
-/* harmony import */ var react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-bootstrap/Row */ "./node_modules/react-bootstrap/esm/Row.js");
-/* harmony import */ var react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-bootstrap/Col */ "./node_modules/react-bootstrap/esm/Col.js");
+/* harmony import */ var react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-bootstrap/Button */ "./node_modules/react-bootstrap/esm/Button.js");
+/* harmony import */ var react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-bootstrap/Container */ "./node_modules/react-bootstrap/esm/Container.js");
+/* harmony import */ var react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-bootstrap/Row */ "./node_modules/react-bootstrap/esm/Row.js");
+/* harmony import */ var react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-bootstrap/Col */ "./node_modules/react-bootstrap/esm/Col.js");
 /* harmony import */ var _HomeTweets_HomeTweets__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./HomeTweets/HomeTweets */ "./resources/js/components/Home/HomeTweets/HomeTweets.js");
 /* harmony import */ var _Home_module_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Home.module.css */ "./resources/js/components/Home/Home.module.css");
-/* harmony import */ var react_bootstrap_Badge__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-bootstrap/Badge */ "./node_modules/react-bootstrap/esm/Badge.js");
+/* harmony import */ var react_bootstrap_Badge__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-bootstrap/Badge */ "./node_modules/react-bootstrap/esm/Badge.js");
+/* harmony import */ var _HomeTweets_Search_Search__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./HomeTweets/Search/Search */ "./resources/js/components/Home/HomeTweets/Search/Search.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 
@@ -2419,6 +2420,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -2469,10 +2471,10 @@ var Home = /*#__PURE__*/function (_Component) {
       console.log(this.props.user);
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
         className: _Home_module_css__WEBPACK_IMPORTED_MODULE_5__.default.main,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_6__.default, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_7__.default, {
           fluid: true,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_7__.default, {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_8__.default, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_8__.default, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_9__.default, {
               md: 3,
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
                 className: _Home_module_css__WEBPACK_IMPORTED_MODULE_5__.default.leftside,
@@ -2483,19 +2485,19 @@ var Home = /*#__PURE__*/function (_Component) {
                   })
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("h6", {
                   className: "text-white",
-                  children: ["Created At:", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_Badge__WEBPACK_IMPORTED_MODULE_9__.default, {
+                  children: ["Created At:", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_Badge__WEBPACK_IMPORTED_MODULE_10__.default, {
                     variant: "secondary",
                     children: this.props.user.created_at
                   })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Link, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Link, {
                   to: "/user/".concat(this.props.user.id),
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_11__.default, {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_12__.default, {
                     variant: "success",
                     children: "My Profile"
                   })
                 })]
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_8__.default, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_9__.default, {
               md: 6,
               className: _Home_module_css__WEBPACK_IMPORTED_MODULE_5__.default.border,
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
@@ -2507,14 +2509,12 @@ var Home = /*#__PURE__*/function (_Component) {
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_HomeTweets_HomeTweets__WEBPACK_IMPORTED_MODULE_4__.default, {
                 user: this.props.user
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_8__.default, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_9__.default, {
               md: 3,
-              style: {
-                padding: "2em 1em"
-              }
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_HomeTweets_Search_Search__WEBPACK_IMPORTED_MODULE_6__.default, {})
             })]
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_11__.default, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_12__.default, {
           className: _Home_module_css__WEBPACK_IMPORTED_MODULE_5__.default.fixedButton,
           onClick: openHandler,
           size: "lg",
@@ -2617,7 +2617,7 @@ var HomeTweets = /*#__PURE__*/function (_Component) {
           liked: tweet.am_i_liked,
           authorId: tweet.user.id,
           retweeted: tweet.retweeted,
-          me_id: _this2.props.user.id
+          isme: _this2.props.user.id === tweet.user.id
         }, "".concat(index, "m"));
       });
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
@@ -2828,7 +2828,7 @@ var Post = /*#__PURE__*/function (_Component) {
               className: "fas fa-retweet"
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
-            children: this.props.me_id === this.props.authorId ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
+            children: this.props.isme ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
               onClick: this.deleteHandler,
               style: {
                 fontSize: "1.1em",
@@ -2848,6 +2848,102 @@ var Post = /*#__PURE__*/function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_1__.Component);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Post);
+
+/***/ }),
+
+/***/ "./resources/js/components/Home/HomeTweets/Search/Search.js":
+/*!******************************************************************!*\
+  !*** ./resources/js/components/Home/HomeTweets/Search/Search.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _Search_module_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Search.module.css */ "./resources/js/components/Home/HomeTweets/Search/Search.module.css");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+
+
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+
+
+
+
+var Search = /*#__PURE__*/function (_Component) {
+  _inherits(Search, _Component);
+
+  var _super = _createSuper(Search);
+
+  function Search(props) {
+    var _this;
+
+    _classCallCheck(this, Search);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      query: "",
+      loading: false,
+      message: ""
+    };
+    return _this;
+  }
+
+  _createClass(Search, [{
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+        className: _Search_module_css__WEBPACK_IMPORTED_MODULE_3__.default.container,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("label", {
+          className: _Search_module_css__WEBPACK_IMPORTED_MODULE_3__.default.label,
+          htmlFor: "search-input",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
+            type: "text",
+            value: "",
+            id: "search-input",
+            placeholder: "Search..."
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("i", {
+            className: "fa fa-search search-icon"
+          })]
+        })
+      });
+    }
+  }]);
+
+  return Search;
+}(react__WEBPACK_IMPORTED_MODULE_1__.Component);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Search);
 
 /***/ }),
 
@@ -3437,7 +3533,8 @@ var Profile = /*#__PURE__*/function (_Component) {
           liked: tweet.am_i_liked,
           retweeted: tweet.retweeted,
           author: _this3.state.user.name,
-          reload: reload
+          reload: reload,
+          isme: isMe
         }, "".concat(index, "m"));
       });
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_7__.default, {
@@ -3498,6 +3595,7 @@ var Profile = /*#__PURE__*/function (_Component) {
     value: function componentDidMount() {
       var _this4 = this;
 
+      console.log(this.props.match.params.id);
       var userId = this.props.match.params.id;
       axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/users/get?user_id=".concat(userId), {
         headers: {
@@ -8184,7 +8282,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "._1on6yXju5jPyy-p6HspoUZ {\n    position: fixed;\n    bottom: 2em;\n    right: 2em;\n}\n._3FltEGZXAdvKGbzV7KozJp {\n    background-color: #15202b;\n}\n\n._1c7_WKS7q0u0CVT0iLFldN {\n    border: 1px solid #38444d;\n    padding: 0;\n}\n\n.FaQ2GHuoFNNDyLarZim8 {\n    height: 100vh;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n}\n._1WGrzURhjf3lkDpF0RH3Ly {\n    border-bottom: 1px solid #38444d;\n}\n.brrnMhQzok0mXAkEnozfU {\n    color: white;\n    padding: 0.5em 1em;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "._1on6yXju5jPyy-p6HspoUZ {\r\n    position: fixed;\r\n    bottom: 2em;\r\n    right: 2em;\r\n}\r\n._3FltEGZXAdvKGbzV7KozJp {\r\n    background-color: #15202b;\r\n}\r\n\r\n._1c7_WKS7q0u0CVT0iLFldN {\r\n    border: 1px solid #38444d;\r\n    padding: 0;\r\n}\r\n\r\n.FaQ2GHuoFNNDyLarZim8 {\r\n    height: 100vh;\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n._1WGrzURhjf3lkDpF0RH3Ly {\r\n    border-bottom: 1px solid #38444d;\r\n}\r\n.brrnMhQzok0mXAkEnozfU {\r\n    color: white;\r\n    padding: 0.5em 1em;\r\n}\r\n", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"fixedButton": "_1on6yXju5jPyy-p6HspoUZ",
@@ -8240,7 +8338,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "._1THQNR0ea_TRzo1ltsITrk {\n    background-color: transparent;\n    border-bottom: 1px solid #38444d;\n    padding: 18px 18px 0 36px;\n}\n\n._1THQNR0ea_TRzo1ltsITrk:hover {\n    background-color: #1c2b3a;\n}\n._21O5LiJ3Pu8rS4tcwz-CkB {\n    color: white;\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n}\n.jkjzb48iWf5_N53fhD23J {\n    font-weight: bold;\n}\n._2CiRn0UUdE1EH39_o6fDsC {\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: space-around;\n    padding: 0 1em;\n}\n\n._14t986Co_wox2d_sz3ZviQ {\n    font-size: 1em;\n    color: white;\n    cursor: pointer;\n}\n._14t986Co_wox2d_sz3ZviQ:hover {\n    opacity: 0.8;\n}\n\n._1q-PY3FZson_AmuE5wO5wT {\n    font-size: 1.3em;\n    color: white;\n}\n.JzegpYrxCGZS7y4Z2gXMM {\n    font-size: 1em;\n    color: rgb(204, 0, 0);\n    cursor: pointer;\n}\n.JzegpYrxCGZS7y4Z2gXMM:hover {\n    opacity: 0.8;\n}\n._1JoB4-Hzq8_LvRpDfR0TD5 {\n    font-size: 1.3em;\n    color: rgb(0, 119, 6);\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "._1THQNR0ea_TRzo1ltsITrk {\r\n    background-color: transparent;\r\n    border-bottom: 1px solid #38444d;\r\n    padding: 18px 18px 0 36px;\r\n}\r\n\r\n._1THQNR0ea_TRzo1ltsITrk:hover {\r\n    background-color: #1c2b3a;\r\n}\r\n._21O5LiJ3Pu8rS4tcwz-CkB {\r\n    color: white;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\r\n}\r\n.jkjzb48iWf5_N53fhD23J {\r\n    font-weight: bold;\r\n}\r\n._2CiRn0UUdE1EH39_o6fDsC {\r\n    display: flex;\r\n    flex-direction: row;\r\n    align-items: center;\r\n    justify-content: space-around;\r\n    padding: 0 1em;\r\n}\r\n\r\n._14t986Co_wox2d_sz3ZviQ {\r\n    font-size: 1em;\r\n    color: white;\r\n    cursor: pointer;\r\n}\r\n._14t986Co_wox2d_sz3ZviQ:hover {\r\n    opacity: 0.8;\r\n}\r\n\r\n._1q-PY3FZson_AmuE5wO5wT {\r\n    font-size: 1.3em;\r\n    color: white;\r\n}\r\n.JzegpYrxCGZS7y4Z2gXMM {\r\n    font-size: 1em;\r\n    color: rgb(204, 0, 0);\r\n    cursor: pointer;\r\n}\r\n.JzegpYrxCGZS7y4Z2gXMM:hover {\r\n    opacity: 0.8;\r\n}\r\n._1JoB4-Hzq8_LvRpDfR0TD5 {\r\n    font-size: 1.3em;\r\n    color: rgb(0, 119, 6);\r\n}\r\n", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"body": "_1THQNR0ea_TRzo1ltsITrk",
@@ -8251,6 +8349,36 @@ ___CSS_LOADER_EXPORT___.locals = {
 	"retweet": "_1q-PY3FZson_AmuE5wO5wT",
 	"liked": "JzegpYrxCGZS7y4Z2gXMM",
 	"retweeted": "_1JoB4-Hzq8_LvRpDfR0TD5"
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/js/components/Home/HomeTweets/Search/Search.module.css":
+/*!************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/js/components/Home/HomeTweets/Search/Search.module.css ***!
+  \************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "._2CsX6EiD_6N4Vh7gP8297c {\r\n    font-size: 30px;\r\n    padding: 16px 0;\r\n    color: #444;\r\n    text-align: center;\r\n}\r\n/*Container*/\r\n._36Z48Y3QWqVLO_Iyr587Ss {\r\n    margin: 36px auto;\r\n    width: 100%;\r\n    max-width: 800px;\r\n}\r\n._1EWhpvDPNIOmtgqUTXDa00 {\r\n    position: relative;\r\n}\r\n._36Z48Y3QWqVLO_Iyr587Ss input {\r\n    width: 100%;\r\n    padding: 16px;\r\n    font-size: 36px;\r\n    font-style: italic;\r\n    color: #444;\r\n    box-sizing: border-box;\r\n    outline: none;\r\n}\r\n._3ATpBoZU9gWGPSklrtQnnb {\r\n    position: absolute;\r\n    top: -10px;\r\n    font-size: 24px;\r\n    color: #555;\r\n    right: 18px;\r\n}\r\n", ""]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	"heading": "_2CsX6EiD_6N4Vh7gP8297c",
+	"container": "_36Z48Y3QWqVLO_Iyr587Ss",
+	"label": "_1EWhpvDPNIOmtgqUTXDa00",
+	"icon": "_3ATpBoZU9gWGPSklrtQnnb"
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -77990,6 +78118,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_Post_module_css__WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
+
+/***/ }),
+
+/***/ "./resources/js/components/Home/HomeTweets/Search/Search.module.css":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/Home/HomeTweets/Search/Search.module.css ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_Search_module_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!../../../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./Search.module.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/js/components/Home/HomeTweets/Search/Search.module.css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_Search_module_css__WEBPACK_IMPORTED_MODULE_1__.default, options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_Search_module_css__WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
 
 /***/ }),
 

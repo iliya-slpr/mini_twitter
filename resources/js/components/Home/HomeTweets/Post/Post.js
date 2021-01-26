@@ -126,7 +126,7 @@ class Post extends Component {
                         <i className="fas fa-retweet"></i>
                     </span>
                     <span>
-                        {this.props.me_id === this.props.authorId ? (
+                        {this.props.isme ? (
                             <span
                                 onClick={this.deleteHandler}
                                 style={{ fontSize: "1.1em", color: "red" }}

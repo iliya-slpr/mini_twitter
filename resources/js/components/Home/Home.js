@@ -9,7 +9,7 @@ import Col from "react-bootstrap/Col";
 import HomeTweets from "./HomeTweets/HomeTweets";
 import classes from "./Home.module.css";
 import Badge from "react-bootstrap/Badge";
-
+import Search from "./HomeTweets/Search/Search";
 class Home extends Component {
     constructor(props) {
         super(props);
@@ -50,7 +50,9 @@ class Home extends Component {
                             </div>
                             <HomeTweets user={this.props.user} />
                         </Col>
-                        <Col md={3} style={{ padding: "2em 1em" }}></Col>
+                        <Col md={3}>
+                            <Search />
+                        </Col>
                     </Row>
                 </Container>
                 <Button
