@@ -57,7 +57,6 @@ class App extends Component {
                     </Route>
                     <Route path="/home">
                         <Home user={this.state.user} />
-                        <Link to="/user/4">fff</Link>
                     </Route>
                     <Route path="/user/:id" component={Profile} />
                 </Switch>

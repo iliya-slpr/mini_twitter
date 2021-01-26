@@ -23,7 +23,11 @@ class Home extends Component {
             <div className={classes.main}>
                 <Container fluid>
                     <Row>
-                        <Col md={3}>11</Col>
+                        <Col md={3}>
+                            <Link to={`/user/${this.props.user.id}`}>
+                                <Button variant="success">My Profile</Button>
+                            </Link>
+                        </Col>
                         <Col md={6} className={classes.border}>
                             <HomeTweets user={this.props.user} />
                         </Col>
