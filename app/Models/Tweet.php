@@ -32,7 +32,9 @@ class Tweet extends Model
 
     public function getAmILikedAttribute()
     {
-        return $this->likes()->get()->contains("id" ,"==",auth()->user()->id );
+        if(!is_null(auth()->user()))
+            return $this->likes()->get()->contains("id" ,"==",auth()->user()->id );
+        return false;
     }
 
     protected function serializeDate(DateTimeInterface $date)
