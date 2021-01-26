@@ -2495,12 +2495,18 @@ var Home = /*#__PURE__*/function (_Component) {
                   })
                 })]
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_8__.default, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_8__.default, {
               md: 6,
               className: _Home_module_css__WEBPACK_IMPORTED_MODULE_5__.default.border,
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_HomeTweets_HomeTweets__WEBPACK_IMPORTED_MODULE_4__.default, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+                className: _Home_module_css__WEBPACK_IMPORTED_MODULE_5__.default.home,
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", {
+                  className: _Home_module_css__WEBPACK_IMPORTED_MODULE_5__.default.homeText,
+                  children: "Home"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_HomeTweets_HomeTweets__WEBPACK_IMPORTED_MODULE_4__.default, {
                 user: this.props.user
-              })
+              })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_8__.default, {
               md: 3,
               style: {
@@ -2512,11 +2518,11 @@ var Home = /*#__PURE__*/function (_Component) {
           className: _Home_module_css__WEBPACK_IMPORTED_MODULE_5__.default.fixedButton,
           onClick: openHandler,
           size: "lg",
-          children: "New Twitt"
+          children: "New Tweet"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Modal_Modal__WEBPACK_IMPORTED_MODULE_3__.default, {
           show: this.state.modalShow,
           onHide: closeHandler,
-          title: "New Twitt"
+          title: "New tweet"
         })]
       });
     }
@@ -2790,7 +2796,10 @@ var Post = /*#__PURE__*/function (_Component) {
               })
             }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
               to: "/user/".concat(this.props.authorId),
-              children: "  " + this.props.author
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
+                className: _Post_module_css__WEBPACK_IMPORTED_MODULE_4__.default.author,
+                children: "  " + this.props.author
+              })
             })]
           }), this.props.time, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("br", {})]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
@@ -8175,13 +8184,15 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "._1on6yXju5jPyy-p6HspoUZ {\r\n    position: fixed;\r\n    bottom: 2em;\r\n    right: 2em;\r\n}\r\n._3FltEGZXAdvKGbzV7KozJp {\r\n    background-color: #15202b;\r\n}\r\n\r\n._1c7_WKS7q0u0CVT0iLFldN {\r\n    border: 1px solid #38444d;\r\n    padding: 0;\r\n}\r\n\r\n.FaQ2GHuoFNNDyLarZim8 {\r\n    height: 100vh;\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n\r\n    justify-content: center;\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "._1on6yXju5jPyy-p6HspoUZ {\n    position: fixed;\n    bottom: 2em;\n    right: 2em;\n}\n._3FltEGZXAdvKGbzV7KozJp {\n    background-color: #15202b;\n}\n\n._1c7_WKS7q0u0CVT0iLFldN {\n    border: 1px solid #38444d;\n    padding: 0;\n}\n\n.FaQ2GHuoFNNDyLarZim8 {\n    height: 100vh;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n}\n._1WGrzURhjf3lkDpF0RH3Ly {\n    border-bottom: 1px solid #38444d;\n}\n.brrnMhQzok0mXAkEnozfU {\n    color: white;\n    padding: 0.5em 1em;\n}\n", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"fixedButton": "_1on6yXju5jPyy-p6HspoUZ",
 	"main": "_3FltEGZXAdvKGbzV7KozJp",
 	"border": "_1c7_WKS7q0u0CVT0iLFldN",
-	"leftside": "FaQ2GHuoFNNDyLarZim8"
+	"leftside": "FaQ2GHuoFNNDyLarZim8",
+	"home": "_1WGrzURhjf3lkDpF0RH3Ly",
+	"homeText": "brrnMhQzok0mXAkEnozfU"
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -8229,11 +8240,12 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "._1THQNR0ea_TRzo1ltsITrk {\r\n    background-color: transparent;\r\n    border-bottom: 1px solid #38444d;\r\n    padding: 1em 3em;\r\n}\r\n\r\n._1THQNR0ea_TRzo1ltsITrk:hover {\r\n    background-color: #1c2b3a;\r\n}\r\n._21O5LiJ3Pu8rS4tcwz-CkB {\r\n    color: white;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\r\n}\r\n\r\n._2CiRn0UUdE1EH39_o6fDsC {\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-around;\r\n    padding: 1em 1em;\r\n}\r\n\r\n._14t986Co_wox2d_sz3ZviQ {\r\n    font-size: 1em;\r\n    color: white;\r\n    cursor: pointer;\r\n}\r\n._14t986Co_wox2d_sz3ZviQ:hover {\r\n    opacity: 0.8;\r\n}\r\n\r\n._1q-PY3FZson_AmuE5wO5wT {\r\n    font-size: 1.3em;\r\n    color: white;\r\n}\r\n.JzegpYrxCGZS7y4Z2gXMM {\r\n    font-size: 1em;\r\n    color: rgb(204, 0, 0);\r\n    cursor: pointer;\r\n}\r\n.JzegpYrxCGZS7y4Z2gXMM:hover {\r\n    opacity: 0.8;\r\n}\r\n._1JoB4-Hzq8_LvRpDfR0TD5 {\r\n    font-size: 1.3em;\r\n    color: rgb(0, 119, 6);\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "._1THQNR0ea_TRzo1ltsITrk {\n    background-color: transparent;\n    border-bottom: 1px solid #38444d;\n    padding: 18px 18px 0 36px;\n}\n\n._1THQNR0ea_TRzo1ltsITrk:hover {\n    background-color: #1c2b3a;\n}\n._21O5LiJ3Pu8rS4tcwz-CkB {\n    color: white;\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n}\n.jkjzb48iWf5_N53fhD23J {\n    font-weight: bold;\n}\n._2CiRn0UUdE1EH39_o6fDsC {\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: space-around;\n    padding: 0 1em;\n}\n\n._14t986Co_wox2d_sz3ZviQ {\n    font-size: 1em;\n    color: white;\n    cursor: pointer;\n}\n._14t986Co_wox2d_sz3ZviQ:hover {\n    opacity: 0.8;\n}\n\n._1q-PY3FZson_AmuE5wO5wT {\n    font-size: 1.3em;\n    color: white;\n}\n.JzegpYrxCGZS7y4Z2gXMM {\n    font-size: 1em;\n    color: rgb(204, 0, 0);\n    cursor: pointer;\n}\n.JzegpYrxCGZS7y4Z2gXMM:hover {\n    opacity: 0.8;\n}\n._1JoB4-Hzq8_LvRpDfR0TD5 {\n    font-size: 1.3em;\n    color: rgb(0, 119, 6);\n}\n", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"body": "_1THQNR0ea_TRzo1ltsITrk",
 	"title": "_21O5LiJ3Pu8rS4tcwz-CkB",
+	"author": "jkjzb48iWf5_N53fhD23J",
 	"footer": "_2CiRn0UUdE1EH39_o6fDsC",
 	"like": "_14t986Co_wox2d_sz3ZviQ",
 	"retweet": "_1q-PY3FZson_AmuE5wO5wT",

@@ -87,7 +87,9 @@ class Post extends Component {
                         ) : null}
 
                         <Link to={`/user/${this.props.authorId}`}>
-                            {"  " + this.props.author}
+                            <span className={classes.author}>
+                                {"  " + this.props.author}
+                            </span>
                         </Link>
                     </h5>
                     {this.props.time}
