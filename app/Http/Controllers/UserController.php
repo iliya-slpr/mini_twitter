@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -26,11 +27,17 @@ class UserController extends Controller
 
     public function edit(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'name' => ['string', 'max:255', 'unique:users']
+        ]);
+        if ($validator->fails()) {
+            return response()->json(["status" => false , "message" => "edit failed" ,"data" => $validator->errors()->get("name")]);
+        }
         $user = User::find(auth()->user()->id);
         $user->name = $request->name;
         $user->save();
 
-        //TODO : profile photo
+        return response()->json(["status" => true , "message" => "Successfully edited"]);
     }
 
     public function followOrNot(Request $request){
