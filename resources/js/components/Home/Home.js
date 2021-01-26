@@ -45,6 +45,9 @@ class Home extends Component {
                             </div>
                         </Col>
                         <Col md={6} className={classes.border}>
+                            <div className={classes.home}>
+                                <h1 className={classes.homeText}>Home</h1>
+                            </div>
                             <HomeTweets user={this.props.user} />
                         </Col>
                         <Col md={3}>33</Col>
@@ -55,12 +58,12 @@ class Home extends Component {
                     onClick={openHandler}
                     size="lg"
                 >
-                    New Twitt
+                    New Tweet
                 </Button>
                 <Dialog
                     show={this.state.modalShow}
                     onHide={closeHandler}
-                    title="New Twitt"
+                    title="New tweet"
                 />
             </div>
         );

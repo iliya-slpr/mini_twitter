@@ -87,7 +87,9 @@ class Post extends Component {
                         ) : null}
 
                         <Link to={`/user/${this.props.authorId}`}>
-                            {"  " + this.props.author}
+                            <span className={classes.author}>
+                                {"  " + this.props.author}
+                            </span>
                         </Link>
                     </h5>
                     {this.props.time}
@@ -124,7 +126,7 @@ class Post extends Component {
                         <i className="fas fa-retweet"></i>
                     </span>
                     <span>
-                        {this.state.me_id === this.state.authorId ? (
+                        {this.props.me_id === this.props.authorId ? (
                             <span
                                 onClick={this.deleteHandler}
                                 style={{ fontSize: "1.1em", color: "red" }}
