@@ -2503,7 +2503,9 @@ var Home = /*#__PURE__*/function (_Component) {
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_8__.default, {
               md: 3,
-              children: "33"
+              style: {
+                padding: "2em 1em"
+              }
             })]
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_11__.default, {
@@ -2591,33 +2593,16 @@ var HomeTweets = /*#__PURE__*/function (_Component) {
     _this.state = {
       tweets: []
     };
-    _this.reload = _this.reload.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(HomeTweets, [{
-    key: "reload",
-    value: function reload() {
-      var _this2 = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_2___default().get("/api/tweets/explore", {
-        headers: {
-          "X-Requested-With": "XMLHttpRequest",
-          Authorization: "Bearer ".concat(document.cookie.slice(6))
-        }
-      }).then(function (res) {
-        return _this2.setState({
-          tweets: res.data.data.tweets
-        });
-      });
-    }
-  }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this2 = this;
 
-      console.log(this.state.tweets);
       var listOfTweets = this.state.tweets.map(function (tweet, index) {
+        console.log(_this2.props.user.id + "$" + tweet.user.id);
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Post_Post__WEBPACK_IMPORTED_MODULE_4__.default, {
           body: tweet.body,
           author: tweet.user.name,
@@ -2626,8 +2611,7 @@ var HomeTweets = /*#__PURE__*/function (_Component) {
           liked: tweet.am_i_liked,
           authorId: tweet.user.id,
           retweeted: tweet.retweeted,
-          me_id: _this3.props.user.id,
-          reload: _this3.reload
+          me_id: _this2.props.user.id
         }, "".concat(index, "m"));
       });
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
@@ -2637,7 +2621,7 @@ var HomeTweets = /*#__PURE__*/function (_Component) {
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this4 = this;
+      var _this3 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_2___default().get("/api/tweets/explore", {
         headers: {
@@ -2645,7 +2629,7 @@ var HomeTweets = /*#__PURE__*/function (_Component) {
           Authorization: "Bearer ".concat(document.cookie.slice(6))
         }
       }).then(function (res) {
-        return _this4.setState({
+        return _this3.setState({
           tweets: res.data.data.tweets
         });
       });
@@ -2835,7 +2819,7 @@ var Post = /*#__PURE__*/function (_Component) {
               className: "fas fa-retweet"
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
-            children: this.state.me_id === this.state.authorId ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
+            children: this.props.me_id === this.props.authorId ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
               onClick: this.deleteHandler,
               style: {
                 fontSize: "1.1em",

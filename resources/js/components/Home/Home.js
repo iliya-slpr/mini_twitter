@@ -47,7 +47,7 @@ class Home extends Component {
                         <Col md={6} className={classes.border}>
                             <HomeTweets user={this.props.user} />
                         </Col>
-                        <Col md={3}>33</Col>
+                        <Col md={3} style={{ padding: "2em 1em" }}></Col>
                     </Row>
                 </Container>
                 <Button
