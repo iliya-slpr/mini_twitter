@@ -47,4 +47,4 @@ Route::middleware('auth:api')->group(function (){
     Route::post("/users/followOrNot" ,[App\Http\Controllers\UserController::class, 'followOrNot']);
 });
 
-Route::get("/search", [App\Http\Controllers\SearchController::class,'search']);
+Route::post("/search", [App\Http\Controllers\SearchController::class,'search']);

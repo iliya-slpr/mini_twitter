@@ -50,8 +50,9 @@ class Home extends Component {
                             </div>
                             <HomeTweets user={this.props.user} />
                         </Col>
-                        <Col md={3}>
+                        <Col md={3} style={{ padding: "2em" }}>
                             <Search />
+                            <div>fdfsd</div>
                         </Col>
                     </Row>
                 </Container>
