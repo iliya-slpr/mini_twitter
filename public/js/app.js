@@ -2384,16 +2384,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _Modal_Modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Modal/Modal */ "./resources/js/components/Modal/Modal.js");
-/* harmony import */ var react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-bootstrap/Button */ "./node_modules/react-bootstrap/esm/Button.js");
+/* harmony import */ var react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-bootstrap/Button */ "./node_modules/react-bootstrap/esm/Button.js");
 /* harmony import */ var react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-bootstrap/Container */ "./node_modules/react-bootstrap/esm/Container.js");
 /* harmony import */ var react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-bootstrap/Row */ "./node_modules/react-bootstrap/esm/Row.js");
 /* harmony import */ var react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-bootstrap/Col */ "./node_modules/react-bootstrap/esm/Col.js");
 /* harmony import */ var _HomeTweets_HomeTweets__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./HomeTweets/HomeTweets */ "./resources/js/components/Home/HomeTweets/HomeTweets.js");
 /* harmony import */ var _Home_module_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Home.module.css */ "./resources/js/components/Home/Home.module.css");
+/* harmony import */ var react_bootstrap_Badge__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-bootstrap/Badge */ "./node_modules/react-bootstrap/esm/Badge.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 
@@ -2418,6 +2419,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -2464,6 +2466,7 @@ var Home = /*#__PURE__*/function (_Component) {
         });
       };
 
+      console.log(this.props.user);
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
         className: _Home_module_css__WEBPACK_IMPORTED_MODULE_5__.default.main,
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_6__.default, {
@@ -2471,12 +2474,26 @@ var Home = /*#__PURE__*/function (_Component) {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_bootstrap_Row__WEBPACK_IMPORTED_MODULE_7__.default, {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_8__.default, {
               md: 3,
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Link, {
-                to: "/user/".concat(this.props.user.id),
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_10__.default, {
-                  variant: "success",
-                  children: "My Profile"
-                })
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                className: _Home_module_css__WEBPACK_IMPORTED_MODULE_5__.default.leftside,
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", {
+                  className: "text-white",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("b", {
+                    children: this.props.user.name
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("h6", {
+                  className: "text-white",
+                  children: ["Created At:", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_Badge__WEBPACK_IMPORTED_MODULE_9__.default, {
+                    variant: "secondary",
+                    children: this.props.user.created_at
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Link, {
+                  to: "/user/".concat(this.props.user.id),
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_11__.default, {
+                    variant: "success",
+                    children: "My Profile"
+                  })
+                })]
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_8__.default, {
               md: 6,
@@ -2489,7 +2506,7 @@ var Home = /*#__PURE__*/function (_Component) {
               children: "33"
             })]
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_10__.default, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_11__.default, {
           className: _Home_module_css__WEBPACK_IMPORTED_MODULE_5__.default.fixedButton,
           onClick: openHandler,
           size: "lg",
@@ -2574,31 +2591,13 @@ var HomeTweets = /*#__PURE__*/function (_Component) {
     _this.state = {
       tweets: []
     };
+    _this.reload = _this.reload.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(HomeTweets, [{
-    key: "render",
-    value: function render() {
-      console.log(this.state.tweets);
-      var listOfTweets = this.state.tweets.map(function (tweet, index) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Post_Post__WEBPACK_IMPORTED_MODULE_4__.default, {
-          body: tweet.body,
-          author: tweet.user.name,
-          time: tweet.created_at,
-          id: tweet.id,
-          liked: tweet.am_i_liked,
-          authorId: tweet.user.id,
-          retweeted: tweet.retweeted
-        }, "".concat(index, "m"));
-      });
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-        children: listOfTweets
-      });
-    }
-  }, {
-    key: "componentDidMount",
-    value: function componentDidMount() {
+    key: "reload",
+    value: function reload() {
       var _this2 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_2___default().get("/api/tweets/explore", {
@@ -2608,6 +2607,45 @@ var HomeTweets = /*#__PURE__*/function (_Component) {
         }
       }).then(function (res) {
         return _this2.setState({
+          tweets: res.data.data.tweets
+        });
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this3 = this;
+
+      console.log(this.state.tweets);
+      var listOfTweets = this.state.tweets.map(function (tweet, index) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Post_Post__WEBPACK_IMPORTED_MODULE_4__.default, {
+          body: tweet.body,
+          author: tweet.user.name,
+          time: tweet.created_at,
+          id: tweet.id,
+          liked: tweet.am_i_liked,
+          authorId: tweet.user.id,
+          retweeted: tweet.retweeted,
+          me_id: _this3.props.user.id,
+          reload: _this3.reload
+        }, "".concat(index, "m"));
+      });
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+        children: listOfTweets
+      });
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this4 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_2___default().get("/api/tweets/explore", {
+        headers: {
+          "X-Requested-With": "XMLHttpRequest",
+          Authorization: "Bearer ".concat(document.cookie.slice(6))
+        }
+      }).then(function (res) {
+        return _this4.setState({
           tweets: res.data.data.tweets
         });
       });
@@ -2692,14 +2730,32 @@ var Post = /*#__PURE__*/function (_Component) {
     _this.state = {
       tweet_id: _this.props.id,
       liked: _this.props.liked,
-      retweeted: _this.props.retweeted
+      retweeted: _this.props.retweeted,
+      me_id: _this.props.me_id
     };
     _this.likeHandler = _this.likeHandler.bind(_assertThisInitialized(_this));
     _this.retweetHandler = _this.retweetHandler.bind(_assertThisInitialized(_this));
+    _this.deleteHandler = _this.deleteHandler.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(Post, [{
+    key: "deleteHandler",
+    value: function deleteHandler() {
+      axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/tweets/delete", {
+        tweet_id: this.state.tweet_id
+      }, {
+        headers: {
+          "X-Requested-With": "XMLHttpRequest",
+          Authorization: "Bearer ".concat(document.cookie.slice(6))
+        }
+      }).then(function (res) {
+        return sweetalert__WEBPACK_IMPORTED_MODULE_3___default()("success", "tweet successfully deleted", "success");
+      });
+      console.log(this.props.reload);
+      this.props.reload();
+    }
+  }, {
     key: "likeHandler",
     value: function likeHandler() {
       this.setState(function (prevState) {
@@ -2739,11 +2795,19 @@ var Post = /*#__PURE__*/function (_Component) {
         className: _Post_module_css__WEBPACK_IMPORTED_MODULE_4__.default.body,
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
           className: _Post_module_css__WEBPACK_IMPORTED_MODULE_4__.default.title,
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h5", {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("h5", {
+            children: [this.props.retweeted ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
+              style: {
+                fontSize: "1.1em",
+                color: "green"
+              },
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("i", {
+                className: "fas fa-retweet"
+              })
+            }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
               to: "/user/".concat(this.props.authorId),
-              children: this.props.author
-            })
+              children: "  " + this.props.author
+            })]
           }), this.props.time, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("br", {})]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
           className: "text-white",
@@ -2770,6 +2834,17 @@ var Post = /*#__PURE__*/function (_Component) {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("i", {
               className: "fas fa-retweet"
             })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
+            children: this.state.me_id === this.state.authorId ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
+              onClick: this.deleteHandler,
+              style: {
+                fontSize: "1.1em",
+                color: "red"
+              },
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("i", {
+                className: "fas fa-trash"
+              })
+            }) : null
           })]
         })]
       });
@@ -3134,13 +3209,15 @@ var Dialog = /*#__PURE__*/function (_Component) {
           Authorization: "Bearer ".concat(document.cookie.slice(6))
         }
       }).then(function (res) {
-        if (res.status === 200) {
+        console.log(res);
+
+        if (res.data.status) {
           swal("Success", "Your profile Updated", "success");
 
           _this2.props.onHide();
         } else {
           _this2.setState({
-            errors: res.data
+            errors: res.data.data.join("")
           });
         }
       });
@@ -3283,6 +3360,7 @@ var Profile = /*#__PURE__*/function (_Component) {
       tweets: [],
       me: {}
     };
+    _this.reload = _this.reload.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -3304,19 +3382,53 @@ var Profile = /*#__PURE__*/function (_Component) {
       });
     }
   }, {
-    key: "render",
-    value: function render() {
+    key: "reload",
+    value: function reload() {
       var _this2 = this;
 
-      var closeHandler = function closeHandler() {
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/tweets/explore", {
+        headers: {
+          "X-Requested-With": "XMLHttpRequest",
+          Authorization: "Bearer ".concat(document.cookie.slice(6))
+        }
+      }).then(function (res) {
         return _this2.setState({
+          tweets: res.data.data.tweets
+        });
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this3 = this;
+
+      var closeHandler = function closeHandler() {
+        return _this3.setState({
           modalShow: false
         });
       };
 
       var openHandler = function openHandler() {
-        return _this2.setState({
+        return _this3.setState({
           modalShow: true
+        });
+      };
+
+      var reload = function reload() {
+        var userId = _this3.props.match.params.id;
+        axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/users/get?user_id=".concat(userId), {
+          headers: {
+            "X-Requested-With": "XMLHttpRequest",
+            Authorization: "Bearer ".concat(document.cookie.slice(6))
+          }
+        }).then(function (res) {
+          console.log(res);
+
+          _this3.setState({
+            user: res.data.data.user,
+            followed: res.data.data.user.am_i_followed,
+            tweets: res.data.data.user.tweets
+          });
         });
       };
 
@@ -3331,7 +3443,8 @@ var Profile = /*#__PURE__*/function (_Component) {
           id: tweet.id,
           liked: tweet.am_i_liked,
           retweeted: tweet.retweeted,
-          author: _this2.state.user.name
+          author: _this3.state.user.name,
+          reload: reload
         }, "".concat(index, "m"));
       });
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_7__.default, {
@@ -3341,9 +3454,10 @@ var Profile = /*#__PURE__*/function (_Component) {
             borderBottom: "1px solid #38444d"
           },
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_9__.default, {
-            xs: 3
+            md: 3
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_9__.default, {
-            xs: 6,
+            md: 6,
+            xs: 12,
             className: _Profile_module_css__WEBPACK_IMPORTED_MODULE_4__.default.header,
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h3", {
               className: "text-white",
@@ -3389,7 +3503,7 @@ var Profile = /*#__PURE__*/function (_Component) {
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this3 = this;
+      var _this4 = this;
 
       var userId = this.props.match.params.id;
       axios__WEBPACK_IMPORTED_MODULE_1___default().get("/api/users/get?user_id=".concat(userId), {
@@ -3398,7 +3512,7 @@ var Profile = /*#__PURE__*/function (_Component) {
           Authorization: "Bearer ".concat(document.cookie.slice(6))
         }
       }).then(function (res) {
-        return _this3.setState({
+        return _this4.setState({
           user: res.data.data.user,
           followed: res.data.data.user.am_i_followed,
           tweets: res.data.data.user.tweets
@@ -3411,7 +3525,7 @@ var Profile = /*#__PURE__*/function (_Component) {
           "X-Requested-With": "XMLHttpRequest"
         }
       }).then(function (res) {
-        return _this3.setState({
+        return _this4.setState({
           me: res.data
         });
       });
@@ -8077,12 +8191,13 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "._1on6yXju5jPyy-p6HspoUZ{\r\n    position: fixed;\r\n    bottom: 2em;\r\n    right: 2em;\r\n}\r\n._3FltEGZXAdvKGbzV7KozJp{\r\n    background-color: #15202b;\r\n}\r\n\r\n._1c7_WKS7q0u0CVT0iLFldN{\r\n    border: 1px solid #38444d;\r\n    padding: 0;\r\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "._1on6yXju5jPyy-p6HspoUZ {\r\n    position: fixed;\r\n    bottom: 2em;\r\n    right: 2em;\r\n}\r\n._3FltEGZXAdvKGbzV7KozJp {\r\n    background-color: #15202b;\r\n}\r\n\r\n._1c7_WKS7q0u0CVT0iLFldN {\r\n    border: 1px solid #38444d;\r\n    padding: 0;\r\n}\r\n\r\n.FaQ2GHuoFNNDyLarZim8 {\r\n    height: 100vh;\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n\r\n    justify-content: center;\r\n}\r\n", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"fixedButton": "_1on6yXju5jPyy-p6HspoUZ",
 	"main": "_3FltEGZXAdvKGbzV7KozJp",
-	"border": "_1c7_WKS7q0u0CVT0iLFldN"
+	"border": "_1c7_WKS7q0u0CVT0iLFldN",
+	"leftside": "FaQ2GHuoFNNDyLarZim8"
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

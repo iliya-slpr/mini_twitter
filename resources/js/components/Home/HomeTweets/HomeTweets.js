@@ -10,7 +10,19 @@ class HomeTweets extends Component {
     constructor(props) {
         super(props);
         this.state = { tweets: [] };
+        this.reload = this.reload.bind(this);
     }
+    reload() {
+        axios
+            .get("/api/tweets/explore", {
+                headers: {
+                    "X-Requested-With": "XMLHttpRequest",
+                    Authorization: `Bearer ${document.cookie.slice(6)}`,
+                },
+            })
+            .then((res) => this.setState({ tweets: res.data.data.tweets }));
+    }
+
     render() {
         console.log(this.state.tweets);
         const listOfTweets = this.state.tweets.map((tweet, index) => (
@@ -23,6 +35,8 @@ class HomeTweets extends Component {
                 liked={tweet.am_i_liked}
                 authorId={tweet.user.id}
                 retweeted={tweet.retweeted}
+                me_id={this.props.user.id}
+                reload={this.reload}
             ></Post>
         ));
         return <div>{listOfTweets}</div>;

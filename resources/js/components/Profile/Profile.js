@@ -14,6 +14,7 @@ class Profile extends Component {
         super(props);
         this.followHandler = this.followHandler.bind(this);
         this.state = { user: {}, followed: null, tweets: [], me: {} };
+        this.reload = this.reload.bind(this);
     }
 
     followHandler() {
@@ -30,9 +31,38 @@ class Profile extends Component {
         );
     }
 
+    reload() {
+        axios
+            .get("/api/tweets/explore", {
+                headers: {
+                    "X-Requested-With": "XMLHttpRequest",
+                    Authorization: `Bearer ${document.cookie.slice(6)}`,
+                },
+            })
+            .then((res) => this.setState({ tweets: res.data.data.tweets }));
+    }
     render() {
         let closeHandler = () => this.setState({ modalShow: false });
         let openHandler = () => this.setState({ modalShow: true });
+        let reload = () => {
+            let userId = this.props.match.params.id;
+
+            axios
+                .get(`/api/users/get?user_id=${userId}`, {
+                    headers: {
+                        "X-Requested-With": "XMLHttpRequest",
+                        Authorization: `Bearer ${document.cookie.slice(6)}`,
+                    },
+                })
+                .then((res) => {
+                    console.log(res);
+                    this.setState({
+                        user: res.data.data.user,
+                        followed: res.data.data.user.am_i_followed,
+                        tweets: res.data.data.user.tweets,
+                    });
+                });
+        };
         let amIFollowed = this.state.followed;
         console.log(this.state.user);
         let isMe = this.state.me.id === this.state.user.id;
@@ -46,14 +76,15 @@ class Profile extends Component {
                 liked={tweet.am_i_liked}
                 retweeted={tweet.retweeted}
                 author={this.state.user.name}
+                reload={reload}
             ></Post>
         ));
 
         return (
             <Container fluid>
                 <Row style={{ borderBottom: "1px solid #38444d" }}>
-                    <Col xs={3}></Col>
-                    <Col xs={6} className={classes.header}>
+                    <Col md={3}></Col>
+                    <Col md={6} xs={12} className={classes.header}>
                         <h3 className="text-white">{this.state.user.name}</h3>
                         <h6 className="text-white">
                             Followers

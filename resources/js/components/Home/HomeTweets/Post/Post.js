@@ -17,9 +17,31 @@ class Post extends Component {
             tweet_id: this.props.id,
             liked: this.props.liked,
             retweeted: this.props.retweeted,
+            me_id: this.props.me_id,
         };
         this.likeHandler = this.likeHandler.bind(this);
         this.retweetHandler = this.retweetHandler.bind(this);
+        this.deleteHandler = this.deleteHandler.bind(this);
+    }
+
+    deleteHandler() {
+        axios
+            .post(
+                "/api/tweets/delete",
+                { tweet_id: this.state.tweet_id },
+                {
+                    headers: {
+                        "X-Requested-With": "XMLHttpRequest",
+                        Authorization: `Bearer ${document.cookie.slice(6)}`,
+                    },
+                }
+            )
+            .then((res) =>
+                swal("success", "tweet successfully deleted", "success")
+            );
+        console.log(this.props.reload);
+
+        this.props.reload();
     }
     likeHandler() {
         this.setState((prevState) => ({ liked: !prevState.liked }));
@@ -58,8 +80,14 @@ class Post extends Component {
             <div className={classes.body}>
                 <div className={classes.title}>
                     <h5>
+                        {this.props.retweeted ? (
+                            <span style={{ fontSize: "1.1em", color: "green" }}>
+                                <i className="fas fa-retweet"></i>
+                            </span>
+                        ) : null}
+
                         <Link to={`/user/${this.props.authorId}`}>
-                            {this.props.author}
+                            {"  " + this.props.author}
                         </Link>
                     </h5>
                     {this.props.time}
@@ -94,6 +122,16 @@ class Post extends Component {
                         onClick={this.retweetHandler}
                     >
                         <i className="fas fa-retweet"></i>
+                    </span>
+                    <span>
+                        {this.state.me_id === this.state.authorId ? (
+                            <span
+                                onClick={this.deleteHandler}
+                                style={{ fontSize: "1.1em", color: "red" }}
+                            >
+                                <i className="fas fa-trash"></i>
+                            </span>
+                        ) : null}
                     </span>
                 </div>
             </div>

@@ -22,11 +22,12 @@ class Dialog extends Component {
                 }
             )
             .then((res) => {
-                if (res.status === 200) {
+                console.log(res);
+                if (res.data.status) {
                     swal("Success", "Your profile Updated", "success");
                     this.props.onHide();
                 } else {
-                    this.setState({ errors: res.data });
+                    this.setState({ errors: res.data.data.join("") });
                 }
             });
     }
