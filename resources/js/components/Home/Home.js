@@ -18,6 +18,33 @@ class Home extends Component {
             modalShow: false,
         };
         this.activityHandler = this.activityHandler.bind(this);
+        this.logsHandler = this.logsHandler.bind(this);
+    }
+    logsHandler() {
+        axios
+            .get("/api/users/logs", {
+                headers: {
+                    "X-Requested-With": "XMLHttpRequest",
+                    Authorization: `Bearer ${document.cookie.slice(6)}`,
+                },
+            })
+            .then((res) => {
+                console.log(res.data.data.logs);
+                let activities = res.data.data.logs;
+                let stringLogs = "";
+                activities.forEach((log) => {
+                    if (log.type == "follow") {
+                        stringLogs += `You followed ${log.user_id} you at ${log.date_time}\n`;
+                    }
+                    if (log.type == "retweet") {
+                        stringLogs += `You Retweeted id:${log.tweet_id} at ${log.date_time}\n`;
+                    }
+                    if (log.type == "like") {
+                        stringLogs += ` You liked id:${log.tweet_id} tweet at ${log.date_time}\n`;
+                    }
+                    swal("Logs", stringLogs, "info");
+                });
+            });
     }
 
     activityHandler() {
@@ -95,6 +122,14 @@ class Home extends Component {
                                         My Profile
                                     </Button>
                                 </Link>
+
+                                <Button
+                                    variant="info"
+                                    className="mb-2"
+                                    onClick={this.logsHandler}
+                                >
+                                    Logs
+                                </Button>
 
                                 <Button
                                     variant="info"

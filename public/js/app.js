@@ -5698,10 +5698,40 @@ var Home = /*#__PURE__*/function (_Component) {
       modalShow: false
     };
     _this.activityHandler = _this.activityHandler.bind(_assertThisInitialized(_this));
+    _this.logsHandler = _this.logsHandler.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(Home, [{
+    key: "logsHandler",
+    value: function logsHandler() {
+      axios__WEBPACK_IMPORTED_MODULE_2___default().get("/api/users/logs", {
+        headers: {
+          "X-Requested-With": "XMLHttpRequest",
+          Authorization: "Bearer ".concat(document.cookie.slice(6))
+        }
+      }).then(function (res) {
+        console.log(res.data.data.logs);
+        var activities = res.data.data.logs;
+        var stringLogs = "";
+        activities.forEach(function (log) {
+          if (log.type == "follow") {
+            stringLogs += "You followed ".concat(log.user_id, " you at ").concat(log.date_time, "\n");
+          }
+
+          if (log.type == "retweet") {
+            stringLogs += "You Retweeted id:".concat(log.tweet_id, " at ").concat(log.date_time, "\n");
+          }
+
+          if (log.type == "like") {
+            stringLogs += " You liked id:".concat(log.tweet_id, " tweet at ").concat(log.date_time, "\n");
+          }
+
+          swal("Logs", stringLogs, "info");
+        });
+      });
+    }
+  }, {
     key: "activityHandler",
     value: function activityHandler() {
       axios__WEBPACK_IMPORTED_MODULE_2___default().get("/api/users/recent", {
@@ -5796,6 +5826,11 @@ var Home = /*#__PURE__*/function (_Component) {
                     className: "mb-2",
                     children: "My Profile"
                   })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_12__.default, {
+                  variant: "info",
+                  className: "mb-2",
+                  onClick: this.logsHandler,
+                  children: "Logs"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_12__.default, {
                   variant: "info",
                   className: "mb-2",
@@ -5982,8 +6017,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sweetalert__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(sweetalert__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _Post_module_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Post.module.css */ "./resources/js/components/Home/HomeTweets/Post/Post.module.css");
 /* harmony import */ var react_bootstrap_Popover__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-bootstrap/Popover */ "./node_modules/react-bootstrap/esm/Popover.js");
-/* harmony import */ var react_bootstrap_OverlayTrigger__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-bootstrap/OverlayTrigger */ "./node_modules/react-bootstrap/esm/OverlayTrigger.js");
+/* harmony import */ var react_bootstrap_OverlayTrigger__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-bootstrap/OverlayTrigger */ "./node_modules/react-bootstrap/esm/OverlayTrigger.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_bootstrap_Badge__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-bootstrap/Badge */ "./node_modules/react-bootstrap/esm/Badge.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 
@@ -6008,6 +6044,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -6132,7 +6169,7 @@ var Post = /*#__PURE__*/function (_Component) {
           Authorization: "Bearer ".concat(document.cookie.slice(6))
         }
       }).then(function (res) {
-        return sweetalert__WEBPACK_IMPORTED_MODULE_3___default()("success", "successfully retweeted", "success");
+        return console.log(res);
       });
     }
   }, {
@@ -6163,12 +6200,15 @@ var Post = /*#__PURE__*/function (_Component) {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("i", {
                 className: "fas fa-retweet"
               })
-            }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
+            }) : null, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
               to: "/user/".concat(this.props.authorId),
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
                 className: _Post_module_css__WEBPACK_IMPORTED_MODULE_4__.default.author,
-                children: "  " + this.props.author
-              })
+                children: "  " + this.props.author + "  "
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_Badge__WEBPACK_IMPORTED_MODULE_7__.default, {
+                variant: "secondary",
+                children: "Tweet ID:" + this.state.tweet_id
+              })]
             })]
           }), this.props.time, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("br", {})]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
@@ -6187,7 +6227,7 @@ var Post = /*#__PURE__*/function (_Component) {
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
           className: _Post_module_css__WEBPACK_IMPORTED_MODULE_4__.default.footer,
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_OverlayTrigger__WEBPACK_IMPORTED_MODULE_7__.default, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_OverlayTrigger__WEBPACK_IMPORTED_MODULE_8__.default, {
             trigger: "hover",
             placement: "bottom",
             overlay: popover,

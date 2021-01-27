@@ -62,7 +62,7 @@ class TweetController extends Controller
                     $request->user()->tweets()->create([
                         'user_id' => $request->user()->id,
                         'body' => $tweet->body,
-                        'retweeted' => $tweet->retweet_id
+                        'retweeted' => $tweet->retweeted
                     ]);
                     $result = ["status" => true , "message" => "Successfully Retweeted From Original Tweet"];
                 }

@@ -11,6 +11,7 @@ import Popover from "react-bootstrap/Popover";
 import Overlay from "react-bootstrap/Overlay";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import { Link } from "react-router-dom";
+import Badge from "react-bootstrap/Badge";
 const reactStringReplace = require("react-string-replace");
 
 class Post extends Component {
@@ -101,9 +102,7 @@ class Post extends Component {
                     },
                 }
             )
-            .then((res) =>
-                swal("success", "successfully retweeted", "success")
-            );
+            .then((res) => console.log(res));
     }
     render() {
         const popover = (
@@ -129,8 +128,11 @@ class Post extends Component {
 
                         <Link to={`/user/${this.props.authorId}`}>
                             <span className={classes.author}>
-                                {"  " + this.props.author}
+                                {"  " + this.props.author + "  "}
                             </span>
+                            <Badge variant="secondary">
+                                {"Tweet ID:" + this.state.tweet_id}
+                            </Badge>
                         </Link>
                     </h5>
                     {this.props.time}
