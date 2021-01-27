@@ -12,6 +12,7 @@ import Login from "./Login/Login";
 import Register from "./Register/Register";
 import Home from "./Home/Home";
 import Profile from "./Profile/Profile";
+import First from "./First/First";
 class App extends Component {
     constructor(props) {
         super(props);

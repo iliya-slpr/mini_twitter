@@ -13,9 +13,22 @@ import Search from "./HomeTweets/Search/Search";
 class Home extends Component {
     constructor(props) {
         super(props);
+        this.logoutHandler = this.logoutHandler.bind(this);
         this.state = {
             modalShow: false,
         };
+    }
+    logoutHandler() {
+        axios
+            .post("api/auth/logout", {
+                headers: {
+                    "X-Requested-With": "XMLHttpRequest",
+                    Authorization: `Bearer ${document.cookie.slice(6)}`,
+                },
+            })
+            .then((res) => {
+                window.location.href = "/";
+            });
     }
     render() {
         let closeHandler = () => this.setState({ modalShow: false });
@@ -38,10 +51,16 @@ class Home extends Component {
                                 </h6>
 
                                 <Link to={`/user/${this.props.user.id}`}>
-                                    <Button variant="success">
+                                    <Button variant="success" className="mb-2">
                                         My Profile
                                     </Button>
                                 </Link>
+                                <Button
+                                    variant="danger"
+                                    onClick={this.logoutHandler}
+                                >
+                                    Logout
+                                </Button>
                             </div>
                         </Col>
                         <Col md={6} className={classes.border}>
