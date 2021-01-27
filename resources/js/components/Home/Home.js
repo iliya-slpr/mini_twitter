@@ -17,6 +17,47 @@ class Home extends Component {
         this.state = {
             modalShow: false,
         };
+        this.activityHandler = this.activityHandler.bind(this);
+    }
+
+    activityHandler() {
+        axios
+            .get("/api/users/recent", {
+                headers: {
+                    "X-Requested-With": "XMLHttpRequest",
+                    Authorization: `Bearer ${document.cookie.slice(6)}`,
+                },
+            })
+            .then((res) => {
+                console.log(res.data.data.recent_activities);
+                let activities = res.data.data.recent_activities;
+                let stringLogs = "";
+                activities.forEach((log) => {
+                    axios
+                        .get(`/api/users/get?user_id=${log.user_id}`, {
+                            headers: {
+                                "X-Requested-With": "XMLHttpRequest",
+                                Authorization: `Bearer ${document.cookie.slice(
+                                    6
+                                )}`,
+                            },
+                        })
+                        .then((response) => {
+                            let username = response.data.data.user.name;
+                            console.log(username);
+                            if (log.type == "follow") {
+                                stringLogs += `${username} followed you at ${log.date_time}\n`;
+                            }
+                            if (log.type == "retweet") {
+                                stringLogs += `${username} retweet your Tweet at ${log.date_time}\n`;
+                            }
+                            if (log.type == "like") {
+                                stringLogs += `${username} liked your tweet at ${log.date_time}\n`;
+                            }
+                            swal("Logs", stringLogs, "info");
+                        });
+                });
+            });
     }
     logoutHandler() {
         axios
@@ -33,7 +74,6 @@ class Home extends Component {
     render() {
         let closeHandler = () => this.setState({ modalShow: false });
         let openHandler = () => this.setState({ modalShow: true });
-        console.log(this.props.user);
         return (
             <div className={classes.main}>
                 <Container fluid>
@@ -55,6 +95,15 @@ class Home extends Component {
                                         My Profile
                                     </Button>
                                 </Link>
+
+                                <Button
+                                    variant="info"
+                                    className="mb-2"
+                                    onClick={this.activityHandler}
+                                >
+                                    Activity
+                                </Button>
+
                                 <Button
                                     variant="danger"
                                     onClick={this.logoutHandler}

@@ -14,6 +14,7 @@ import Home from "./Home/Home";
 import Profile from "./Profile/Profile";
 import First from "./First/First";
 import Hashtags from "./Hashtag/Haghtags";
+import swal from "sweetalert";
 class App extends Component {
     constructor(props) {
         super(props);
