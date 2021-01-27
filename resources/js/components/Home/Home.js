@@ -52,7 +52,6 @@ class Home extends Component {
                         </Col>
                         <Col md={3} style={{ padding: "2em" }}>
                             <Search />
-                            <div>fdfsd</div>
                         </Col>
                     </Row>
                 </Container>

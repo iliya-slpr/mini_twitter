@@ -1,15 +1,38 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import InputGroup from "react-bootstrap/InputGroup";
-import FormControl from "react-bootstrap/FormControl";
+import { Link } from "react-router-dom";
+import classes from "./SearchResult.module.css";
 
 class SearchResult extends Component {
     render() {
-        return <div className="bg-light">{this.props.title}</div>;
+        if (this.props.type === "user") {
+            return (
+                <Link to={`/user/${this.props.user.id}`}>
+                    <div style={{ padding: "1em" }} className="bg-light">
+                        <span className={classes.name}>
+                            {this.props.user.name}
+                        </span>
+                    </div>
+                </Link>
+            );
+        } else {
+            return (
+                <Link
+                    to={`/user/${this.props.user.id}`}
+                    style={{ textDecoration: "none" }}
+                >
+                    <div
+                        className="bg-light my-1"
+                        style={{ borderRadius: "10px" }}
+                    >
+                        <h5 className="bg-primary px-2">
+                            {this.props.user.name}
+                        </h5>
+                        <div>{this.props.body}</div>
+                    </div>
+                </Link>
+            );
+        }
     }
 }
 

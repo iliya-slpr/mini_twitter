@@ -2333,7 +2333,7 @@ var App = /*#__PURE__*/function (_Component) {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
             path: "/",
             exact: true,
-            children: "home"
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(First, {})
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
             path: "/login",
             exact: true,
@@ -2509,14 +2509,12 @@ var Home = /*#__PURE__*/function (_Component) {
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_HomeTweets_HomeTweets__WEBPACK_IMPORTED_MODULE_4__.default, {
                 user: this.props.user
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_9__.default, {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_Col__WEBPACK_IMPORTED_MODULE_9__.default, {
               md: 3,
               style: {
                 padding: "2em"
               },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_HomeTweets_Search_Search__WEBPACK_IMPORTED_MODULE_6__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-                children: "fdfsd"
-              })]
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_HomeTweets_Search_Search__WEBPACK_IMPORTED_MODULE_6__.default, {})
             })]
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_12__.default, {
@@ -2860,9 +2858,271 @@ var Post = /*#__PURE__*/function (_Component) {
 /*!******************************************************************!*\
   !*** ./resources/js/components/Home/HomeTweets/Search/Search.js ***!
   \******************************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\Users\\ILiya Slpr\\Desktop\\New folder (3)\\mini_twitter\\resources\\js\\components\\Home\\HomeTweets\\Search\\Search.js: Unexpected token, expected \",\" (56:8)\n\n\u001b[0m \u001b[90m 54 | \u001b[39m                \u001b[33m<\u001b[39m\u001b[33mSearchResult\u001b[39m title\u001b[33m=\u001b[39m{result\u001b[33m.\u001b[39mname} \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 55 | \u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 56 | \u001b[39m        }\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 57 | \u001b[39m        \u001b[0m\n\u001b[0m \u001b[90m 58 | \u001b[39m        console\u001b[33m.\u001b[39mlog(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mstate\u001b[33m.\u001b[39mresults)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 59 | \u001b[39m        \u001b[36mreturn\u001b[39m (\u001b[0m\n    at Object._raise (C:\\Users\\ILiya Slpr\\Desktop\\New folder (3)\\mini_twitter\\node_modules\\@babel\\parser\\lib\\index.js:748:17)\n    at Object.raiseWithData (C:\\Users\\ILiya Slpr\\Desktop\\New folder (3)\\mini_twitter\\node_modules\\@babel\\parser\\lib\\index.js:741:17)\n    at Object.raise (C:\\Users\\ILiya Slpr\\Desktop\\New folder (3)\\mini_twitter\\node_modules\\@babel\\parser\\lib\\index.js:735:17)\n    at Object.unexpected (C:\\Users\\ILiya Slpr\\Desktop\\New folder (3)\\mini_twitter\\node_modules\\@babel\\parser\\lib\\index.js:9101:16)\n    at Object.expect (C:\\Users\\ILiya Slpr\\Desktop\\New folder (3)\\mini_twitter\\node_modules\\@babel\\parser\\lib\\index.js:9087:28)\n    at Object.parseParenAndDistinguishExpression (C:\\Users\\ILiya Slpr\\Desktop\\New folder (3)\\mini_twitter\\node_modules\\@babel\\parser\\lib\\index.js:10736:14)\n    at Object.parseExprAtom (C:\\Users\\ILiya Slpr\\Desktop\\New folder (3)\\mini_twitter\\node_modules\\@babel\\parser\\lib\\index.js:10470:21)\n    at Object.parseExprAtom (C:\\Users\\ILiya Slpr\\Desktop\\New folder (3)\\mini_twitter\\node_modules\\@babel\\parser\\lib\\index.js:4763:20)\n    at Object.parseExprSubscripts (C:\\Users\\ILiya Slpr\\Desktop\\New folder (3)\\mini_twitter\\node_modules\\@babel\\parser\\lib\\index.js:10150:23)\n    at Object.parseUpdate (C:\\Users\\ILiya Slpr\\Desktop\\New folder (3)\\mini_twitter\\node_modules\\@babel\\parser\\lib\\index.js:10130:21)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _Search_module_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Search.module.css */ "./resources/js/components/Home/HomeTweets/Search/Search.module.css");
+/* harmony import */ var react_bootstrap_InputGroup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-bootstrap/InputGroup */ "./node_modules/react-bootstrap/esm/InputGroup.js");
+/* harmony import */ var react_bootstrap_FormControl__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-bootstrap/FormControl */ "./node_modules/react-bootstrap/esm/FormControl.js");
+/* harmony import */ var _SearchResult_SearchResult__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SearchResult/SearchResult */ "./resources/js/components/Home/HomeTweets/Search/SearchResult/SearchResult.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+
+
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+
+
+
+
+
+
+
+
+var Search = /*#__PURE__*/function (_Component) {
+  _inherits(Search, _Component);
+
+  var _super = _createSuper(Search);
+
+  function Search(props) {
+    var _this;
+
+    _classCallCheck(this, Search);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      query: "",
+      loading: false,
+      message: "",
+      results: []
+    };
+    _this.changeHandler = _this.changeHandler.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(Search, [{
+    key: "changeHandler",
+    value: function changeHandler(e) {
+      var _this2 = this;
+
+      this.setState({
+        query: e.target.value,
+        type: "",
+        loading: true
+      });
+
+      if (this.state.query.length == 0 || this.state.query.length == 1 || this.state.query.length == 2) {
+        this.setState({
+          loaded: false
+        });
+      }
+
+      if (this.state.query.length > 2) {
+        axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/search", {
+          q: this.state.query
+        }, {
+          headers: {
+            "X-Requested-With": "XMLHttpRequest",
+            Authorization: "Bearer ".concat(document.cookie.slice(6))
+          }
+        }).then(function (res) {
+          _this2.setState({
+            results: res.data.data.search_type == "user" ? res.data.data.users : res.data.data.tweets,
+            type: res.data.data.search_type
+          });
+
+          _this2.setState({
+            loaded: true
+          });
+        });
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var listOfReuslts = [];
+
+      if (this.state.type === "user" && this.state.loaded) {
+        listOfReuslts = this.state.results.map(function (user, index) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_SearchResult_SearchResult__WEBPACK_IMPORTED_MODULE_4__.default, {
+            user: user,
+            type: "user"
+          }, index);
+        });
+      }
+
+      if ((this.state.type === "tweet" || this.state.type === "hashtag") && this.state.loaded) {
+        listOfReuslts = this.state.results.map(function (result, index) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_SearchResult_SearchResult__WEBPACK_IMPORTED_MODULE_4__.default, {
+            type: "tweet",
+            user: result.user,
+            body: result.body
+          }, index);
+        });
+      }
+
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_bootstrap_InputGroup__WEBPACK_IMPORTED_MODULE_5__.default, {
+          onChange: this.changeHandler,
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_FormControl__WEBPACK_IMPORTED_MODULE_6__.default, {
+            placeholder: "Recipient's username",
+            "aria-label": "Amount (to the nearest dollar)"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_InputGroup__WEBPACK_IMPORTED_MODULE_5__.default.Append, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_InputGroup__WEBPACK_IMPORTED_MODULE_5__.default.Text, {
+              className: "bg-light",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("i", {
+                className: "fas fa-search"
+              })
+            })
+          })]
+        }), this.state.query.length > 1 && this.state.results.length == 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h4", {
+          className: "bg-white",
+          children: "No Result"
+        }) : listOfReuslts]
+      });
+    }
+  }]);
+
+  return Search;
+}(react__WEBPACK_IMPORTED_MODULE_1__.Component);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Search);
+
+/***/ }),
+
+/***/ "./resources/js/components/Home/HomeTweets/Search/SearchResult/SearchResult.js":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/Home/HomeTweets/Search/SearchResult/SearchResult.js ***!
+  \*************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _SearchResult_module_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SearchResult.module.css */ "./resources/js/components/Home/HomeTweets/Search/SearchResult/SearchResult.module.css");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+
+
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+
+var SearchResult = /*#__PURE__*/function (_Component) {
+  _inherits(SearchResult, _Component);
+
+  var _super = _createSuper(SearchResult);
+
+  function SearchResult() {
+    _classCallCheck(this, SearchResult);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(SearchResult, [{
+    key: "render",
+    value: function render() {
+      if (this.props.type === "user") {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
+          to: "/user/".concat(this.props.user.id),
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+            style: {
+              padding: "1em"
+            },
+            className: "bg-light",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
+              className: _SearchResult_module_css__WEBPACK_IMPORTED_MODULE_3__.default.name,
+              children: this.props.user.name
+            })
+          })
+        });
+      } else {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
+          to: "/user/".concat(this.props.user.id),
+          style: {
+            textDecoration: "none"
+          },
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+            className: "bg-light my-1",
+            style: {
+              borderRadius: "10px"
+            },
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h5", {
+              className: "bg-primary px-2",
+              children: this.props.user.name
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+              children: this.props.body
+            })]
+          })
+        });
+      }
+    }
+  }]);
+
+  return SearchResult;
+}(react__WEBPACK_IMPORTED_MODULE_1__.Component);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SearchResult);
 
 /***/ }),
 
@@ -8268,6 +8528,63 @@ ___CSS_LOADER_EXPORT___.locals = {
 	"retweet": "_1q-PY3FZson_AmuE5wO5wT",
 	"liked": "JzegpYrxCGZS7y4Z2gXMM",
 	"retweeted": "_1JoB4-Hzq8_LvRpDfR0TD5"
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/js/components/Home/HomeTweets/Search/Search.module.css":
+/*!************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/js/components/Home/HomeTweets/Search/Search.module.css ***!
+  \************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "._2CsX6EiD_6N4Vh7gP8297c {\r\n    font-size: 30px;\r\n    padding: 16px 0;\r\n    color: #444;\r\n    text-align: center;\r\n}\r\n/*Container*/\r\n._36Z48Y3QWqVLO_Iyr587Ss {\r\n    margin: 36px auto;\r\n    width: 100%;\r\n    max-width: 800px;\r\n}\r\n._1EWhpvDPNIOmtgqUTXDa00 {\r\n    position: relative;\r\n}\r\n._36Z48Y3QWqVLO_Iyr587Ss input {\r\n    width: 80%;\r\n    padding: 0.8em;\r\n    font-size: 1em;\r\n    font-style: italic;\r\n    color: #444;\r\n    box-sizing: border-box;\r\n    outline: none;\r\n}\r\n._3ATpBoZU9gWGPSklrtQnnb {\r\n    position: absolute;\r\n    top: 0;\r\n    font-size: 24px;\r\n    color: #555;\r\n    right: 3em;\r\n}\r\n", ""]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	"heading": "_2CsX6EiD_6N4Vh7gP8297c",
+	"container": "_36Z48Y3QWqVLO_Iyr587Ss",
+	"label": "_1EWhpvDPNIOmtgqUTXDa00",
+	"icon": "_3ATpBoZU9gWGPSklrtQnnb"
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/js/components/Home/HomeTweets/Search/SearchResult/SearchResult.module.css":
+/*!*******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/js/components/Home/HomeTweets/Search/SearchResult/SearchResult.module.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "._3mZEZw1XQ7tuYBgW2ySs6q {\r\n    color: rgb(0, 1, 82);\r\n    font-size: 1.2em;\r\n}\r\n._3mZEZw1XQ7tuYBgW2ySs6q:hover {\r\n    color: rgb(0, 0, 0);\r\n    text-decoration: none;\r\n}\r\n", ""]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	"name": "_3mZEZw1XQ7tuYBgW2ySs6q"
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -44281,6 +44598,85 @@ FormText.displayName = 'FormText';
 
 /***/ }),
 
+/***/ "./node_modules/react-bootstrap/esm/InputGroup.js":
+/*!********************************************************!*\
+  !*** ./node_modules/react-bootstrap/esm/InputGroup.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutPropertiesLoose */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js");
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _createWithBsPrefix__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./createWithBsPrefix */ "./node_modules/react-bootstrap/esm/createWithBsPrefix.js");
+/* harmony import */ var _ThemeProvider__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ThemeProvider */ "./node_modules/react-bootstrap/esm/ThemeProvider.js");
+
+
+
+
+
+
+var InputGroupAppend = (0,_createWithBsPrefix__WEBPACK_IMPORTED_MODULE_4__.default)('input-group-append');
+var InputGroupPrepend = (0,_createWithBsPrefix__WEBPACK_IMPORTED_MODULE_4__.default)('input-group-prepend');
+var InputGroupText = (0,_createWithBsPrefix__WEBPACK_IMPORTED_MODULE_4__.default)('input-group-text', {
+  Component: 'span'
+});
+
+var InputGroupCheckbox = function InputGroupCheckbox(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(InputGroupText, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("input", (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__.default)({
+    type: "checkbox"
+  }, props)));
+};
+
+var InputGroupRadio = function InputGroupRadio(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(InputGroupText, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("input", (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__.default)({
+    type: "radio"
+  }, props)));
+};
+
+/**
+ *
+ * @property {InputGroupAppend} Append
+ * @property {InputGroupPrepend} Prepend
+ * @property {InputGroupText} Text
+ * @property {InputGroupRadio} Radio
+ * @property {InputGroupCheckbox} Checkbox
+ */
+var InputGroup = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.forwardRef(function (_ref, ref) {
+  var bsPrefix = _ref.bsPrefix,
+      size = _ref.size,
+      className = _ref.className,
+      _ref$as = _ref.as,
+      Component = _ref$as === void 0 ? 'div' : _ref$as,
+      props = (0,_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_0__.default)(_ref, ["bsPrefix", "size", "className", "as"]);
+
+  bsPrefix = (0,_ThemeProvider__WEBPACK_IMPORTED_MODULE_5__.useBootstrapPrefix)(bsPrefix, 'input-group');
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(Component, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__.default)({
+    ref: ref
+  }, props, {
+    className: classnames__WEBPACK_IMPORTED_MODULE_2___default()(className, bsPrefix, size && bsPrefix + "-" + size)
+  }));
+});
+InputGroup.displayName = 'InputGroup';
+
+var InputGroupWithExtras = (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__.default)({}, InputGroup, {
+  Text: InputGroupText,
+  Radio: InputGroupRadio,
+  Checkbox: InputGroupCheckbox,
+  Append: InputGroupAppend,
+  Prepend: InputGroupPrepend
+});
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (InputGroupWithExtras);
+
+/***/ }),
+
 /***/ "./node_modules/react-bootstrap/esm/Modal.js":
 /*!***************************************************!*\
   !*** ./node_modules/react-bootstrap/esm/Modal.js ***!
@@ -78007,6 +78403,66 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_Post_module_css__WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
+
+/***/ }),
+
+/***/ "./resources/js/components/Home/HomeTweets/Search/Search.module.css":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/Home/HomeTweets/Search/Search.module.css ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_Search_module_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!../../../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./Search.module.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/js/components/Home/HomeTweets/Search/Search.module.css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_Search_module_css__WEBPACK_IMPORTED_MODULE_1__.default, options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_Search_module_css__WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
+
+/***/ }),
+
+/***/ "./resources/js/components/Home/HomeTweets/Search/SearchResult/SearchResult.module.css":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/components/Home/HomeTweets/Search/SearchResult/SearchResult.module.css ***!
+  \*********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_SearchResult_module_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!../../../../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./SearchResult.module.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/js/components/Home/HomeTweets/Search/SearchResult/SearchResult.module.css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_SearchResult_module_css__WEBPACK_IMPORTED_MODULE_1__.default, options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_SearchResult_module_css__WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
 
 /***/ }),
 

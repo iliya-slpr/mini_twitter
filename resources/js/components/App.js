@@ -39,7 +39,7 @@ class App extends Component {
             <Router>
                 <Switch>
                     <Route path="/" exact>
-                        home
+                        <First />
                     </Route>
                     <Route path="/login" exact>
                         {this.state.isAuth ? (

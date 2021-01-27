@@ -17,58 +17,78 @@ class Search extends Component {
     }
     changeHandler(e) {
         this.setState({ query: e.target.value, type: "", loading: true });
-        axios
-            .post(
-                "/api/search",
-                { q: this.state.query },
-                {
-                    headers: {
-                        "X-Requested-With": "XMLHttpRequest",
-                        Authorization: `Bearer ${document.cookie.slice(6)}`,
-                    },
-                }
-            )
-            .then((res) => {
-                if (res.data.data.search_type == "user") {
+        if (
+            this.state.query.length == 0 ||
+            this.state.query.length == 1 ||
+            this.state.query.length == 2
+        ) {
+            this.setState({ loaded: false });
+        }
+        if (this.state.query.length > 2) {
+            axios
+                .post(
+                    "/api/search",
+                    { q: this.state.query },
+                    {
+                        headers: {
+                            "X-Requested-With": "XMLHttpRequest",
+                            Authorization: `Bearer ${document.cookie.slice(6)}`,
+                        },
+                    }
+                )
+                .then((res) => {
                     this.setState({
-                        results: res.data.data.users,
-                        type: "user",
-                    });
-                } else {
-                    this.setState({
-                        results: res.data.data.tweets,
+                        results:
+                            res.data.data.search_type == "user"
+                                ? res.data.data.users
+                                : res.data.data.tweets,
                         type: res.data.data.search_type,
                     });
-                }
-            });
+                    this.setState({ loaded: true });
+                });
+        }
     }
     render() {
-        console.log(this.state.results);
-        if(this.state.type ==='user'){
-            let listOfReuslts = this.state.results.map((result) => (
-                <SearchResult title={result.name} />
+        let listOfReuslts = [];
+        if (this.state.type === "user" && this.state.loaded) {
+            listOfReuslts = this.state.results.map((user, index) => (
+                <SearchResult user={user} type="user" key={index} />
             ));
         }
-        else{
-            let listOfReuslts = this.state.results.map((result) => (
-                <SearchResult title={result.name} />
-
-        }
-        
-        console.log(this.state.results);
-        return (
-            <InputGroup className="mb-3">
-                <FormControl
-                    onChange={this.changeHandler}
-                    placeholder="Recipient's username"
-                    aria-label="Amount (to the nearest dollar)"
+        if (
+            (this.state.type === "tweet" || this.state.type === "hashtag") &&
+            this.state.loaded
+        ) {
+            listOfReuslts = this.state.results.map((result, index) => (
+                <SearchResult
+                    key={index}
+                    type="tweet"
+                    user={result.user}
+                    body={result.body}
                 />
-                <InputGroup.Append>
-                    <InputGroup.Text className="bg-light">
-                        <i className="fas fa-search"></i>
-                    </InputGroup.Text>
-                </InputGroup.Append>
-            </InputGroup>
+            ));
+        }
+
+        return (
+            <div>
+                <InputGroup onChange={this.changeHandler}>
+                    <FormControl
+                        placeholder="Recipient's username"
+                        aria-label="Amount (to the nearest dollar)"
+                    />
+                    <InputGroup.Append>
+                        <InputGroup.Text className="bg-light">
+                            <i className="fas fa-search"></i>
+                        </InputGroup.Text>
+                    </InputGroup.Append>
+                </InputGroup>
+                {this.state.query.length > 1 &&
+                this.state.results.length == 0 ? (
+                    <h4 className="bg-white">No Result</h4>
+                ) : (
+                    listOfReuslts
+                )}
+            </div>
         );
     }
 }
