@@ -81,4 +81,28 @@ class UserController extends Controller
         $sorted = $activities->sortByDesc('date_time');
         return response()->json(["status" => true , "data" => ["recent_activities" =>$sorted->values()->all()]]);
     }
+
+    public function getUserLogs()
+    {
+        $logs = collect([]);
+
+        //follows
+        $u = DB::table('user_follow')->where('user_id' , auth('api')->user()->id)->get();
+        foreach ($u as $item)
+            $logs->push(["type"=>"follow" , "user_id" => $item->followed_user_id , "date_time" => $item->created_at]);
+
+        //likes
+        $tweetIds = auth('api')->user()->tweets()->pluck('id');
+        $l = DB::table('tweet_like')->where('user_id' , auth('api')->user()->id)->get();
+        foreach ($l as $item)
+            $logs->push(["type"=>"like" , "tweet_id" => $item->tweet_id , "date_time" => $item->created_at]);
+
+        //retweets:
+        $r = DB::table('tweets')->whereIn('id' , $tweetIds)->where('retweeted','<>',0)->get();
+        foreach ($r as $item)
+            $logs->push(["type"=>"retweet" ,"tweet_id" => $item->retweeted, "date_time" => $item->created_at]);
+
+        $sorted = $logs->sortByDesc('date_time');
+        return response()->json(["status" => true , "data" => ["logs" =>$sorted->values()->all()]]);
+    }
 }
