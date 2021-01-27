@@ -100,7 +100,7 @@ class Profile extends Component {
         return (
             <Container fluid>
                 <Row style={{ borderBottom: "1px solid #38444d" }}>
-                    <Col md={3}></Col>
+                    <Col md={3} xs={12}></Col>
                     <Col md={6} xs={12} className={classes.header}>
                         <h3 className="text-white">{this.state.user.name}</h3>
                         <h6 className="text-white">
@@ -135,7 +135,7 @@ class Profile extends Component {
                     </Col>
                 </Row>
                 <Row>
-                    <Col xs={3}>
+                    <Col xs={12} md={3}>
                         <div className={classes.leftside}>
                             <h2 className="text-white">
                                 <b>{this.state.me.name}</b>
@@ -165,7 +165,7 @@ class Profile extends Component {
                             </Button>
                         </div>
                     </Col>
-                    <Col xs={6}>
+                    <Col md={6} xs={12}>
                         {" "}
                         <div>{listOfTweets}</div>
                     </Col>

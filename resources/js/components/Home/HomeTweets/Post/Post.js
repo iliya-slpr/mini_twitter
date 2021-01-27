@@ -7,6 +7,9 @@ import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import swal from "sweetalert";
 import classes from "./Post.module.css";
+import Popover from "react-bootstrap/Popover";
+import Overlay from "react-bootstrap/Overlay";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import { Link } from "react-router-dom";
 const reactStringReplace = require("react-string-replace");
 
@@ -19,12 +22,30 @@ class Post extends Component {
             retweeted: this.props.retweeted,
             me_id: this.props.me_id,
             likes_count: this.props.likes_count,
+            likes: "",
         };
         this.likeHandler = this.likeHandler.bind(this);
         this.retweetHandler = this.retweetHandler.bind(this);
         this.deleteHandler = this.deleteHandler.bind(this);
     }
-
+    componentDidMount() {
+        axios
+            .get(`/api/tweets/getLikes?tweet_id=${this.state.tweet_id}`, {
+                headers: {
+                    "X-Requested-With": "XMLHttpRequest",
+                    Authorization: `Bearer ${document.cookie.slice(6)}`,
+                },
+            })
+            .then((res) => {
+                let strLikes = "";
+                res.data.data.likes.forEach((element) => {
+                    strLikes += element.name;
+                    strLikes += "\n";
+                });
+                console.log(strLikes);
+                this.setState({ likes: strLikes });
+            });
+    }
     deleteHandler() {
         axios
             .post(
@@ -85,6 +106,17 @@ class Post extends Component {
             );
     }
     render() {
+        const popover = (
+            <Popover id="popover-basic">
+                <Popover.Title as="h3" className="bg-dark text-primary">
+                    Likes
+                </Popover.Title>
+                <Popover.Content className="bg-secondary text-white">
+                    {this.state.likes}
+                </Popover.Content>
+            </Popover>
+        );
+
         return (
             <div className={classes.body}>
                 <div className={classes.title}>
@@ -120,15 +152,22 @@ class Post extends Component {
                     )}
                 </div>
                 <div className={classes.footer}>
-                    <span
-                        className={
-                            this.state.liked ? classes.liked : classes.like
-                        }
-                        onClick={this.likeHandler}
+                    <OverlayTrigger
+                        trigger="hover"
+                        placement="bottom"
+                        overlay={popover}
                     >
-                        <i className="far fa-heart"></i>
-                        <span> {this.state.likes_count}</span>
-                    </span>
+                        <span
+                            className={
+                                this.state.liked ? classes.liked : classes.like
+                            }
+                            onClick={this.likeHandler}
+                        >
+                            <i className="far fa-heart"></i>
+                            <span> {this.state.likes_count}</span>
+                        </span>
+                    </OverlayTrigger>
+
                     <span
                         className={classes.retweet}
                         onClick={this.retweetHandler}

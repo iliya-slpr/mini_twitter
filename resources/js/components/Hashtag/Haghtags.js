@@ -51,7 +51,7 @@ class Hashtag extends Component {
         return (
             <Container fluid>
                 <Row>
-                    <Col xs={3}>
+                    <Col md={3} xs={12}>
                         <div className={classes.leftside}>
                             <h2 className="text-white">
                                 <b>{this.state.user.name}</b>
@@ -82,8 +82,10 @@ class Hashtag extends Component {
                             </Button>
                         </div>
                     </Col>
-                    <Col xs={6}>{listOfTweets}</Col>
-                    <Col xs={3} className="mt-3">
+                    <Col xs={12} md={6}>
+                        {listOfTweets}
+                    </Col>
+                    <Col md={3} xs={12} className="mt-3">
                         <Search />
                     </Col>
                 </Row>
