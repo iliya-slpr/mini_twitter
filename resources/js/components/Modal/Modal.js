@@ -79,7 +79,9 @@ class Dialog extends Component {
                                 rows={5}
                                 onChange={this.changeHanlder}
                             />
-                            <span>{this.state.errors}</span>
+                            <span className="text-danger">
+                                {this.state.errors}
+                            </span>
                         </Form.Group>
                     </Form>
                 </Modal.Body>

@@ -15,7 +15,7 @@ class SearchController extends Controller
         $res = ["status" => true , "data" => []];
         if(Str::startsWith($q , '#')){
             $res['data']['search_type'] = "hashtag";
-            $res['data']['tweets'] = Tweet::where('body' ,'like' , '%' . $q .'%')->with('user')->get();
+            $res['data']['tweets'] = Tweet::where('body' ,'like' , '%' . $q .'%')->with('user')->withCount('likes')->get();
         }else if(Str::startsWith($q , '@')){
             $res['data']['search_type'] = "user";
             $res['data']['users'] = User::where('name', 'like' , '%' . Str::substr($q,1) .'%')->get();

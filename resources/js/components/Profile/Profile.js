@@ -57,6 +57,7 @@ class Profile extends Component {
             .then((res) => this.setState({ tweets: res.data.data.tweets }));
     }
     render() {
+        console.log(this.props.match);
         let closeHandler = () => this.setState({ modalShow: false });
         let openHandler = () => this.setState({ modalShow: true });
         let reload = () => {

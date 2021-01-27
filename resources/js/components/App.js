@@ -13,6 +13,7 @@ import Register from "./Register/Register";
 import Home from "./Home/Home";
 import Profile from "./Profile/Profile";
 import First from "./First/First";
+import Hashtags from "./Hashtag/Haghtags";
 class App extends Component {
     constructor(props) {
         super(props);
@@ -60,6 +61,7 @@ class App extends Component {
                         <Home user={this.state.user} />
                     </Route>
                     <Route path="/user/:id" component={Profile} />
+                    <Route path="/hash/:hashtag" component={Hashtags} />
                 </Switch>
             </Router>
         );
