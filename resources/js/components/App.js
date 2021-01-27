@@ -42,7 +42,11 @@ class App extends Component {
             <Router>
                 <Switch>
                     <Route path="/" exact>
-                        <First />
+                        {this.state.isAuth ? (
+                            <Redirect to="/home" />
+                        ) : (
+                            <First />
+                        )}
                     </Route>
                     <Route path="/login" exact>
                         {this.state.isAuth ? (
