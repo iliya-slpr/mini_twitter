@@ -58,7 +58,11 @@ class App extends Component {
                         )}
                     </Route>
                     <Route path="/home">
-                        <Home user={this.state.user} />
+                        {this.state.isAuth ? (
+                            <Home user={this.state.user} />
+                        ) : (
+                            <Redirect to="/login" />
+                        )}
                     </Route>
                     <Route path="/user/:id" component={Profile} />
                     <Route path="/hash/:hashtag" component={Hashtags} />

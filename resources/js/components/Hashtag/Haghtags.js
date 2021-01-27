@@ -63,6 +63,12 @@ class Hashtag extends Component {
                                 </Badge>
                             </h6>
 
+                            <Link to={`/home`}>
+                                <Button variant="info" className="mb-2">
+                                    Home
+                                </Button>
+                            </Link>
+
                             <Link to={`/user/${this.state.user.id}`}>
                                 <Button variant="success" className="mb-2">
                                     My Profile
