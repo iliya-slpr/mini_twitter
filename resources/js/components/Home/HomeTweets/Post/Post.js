@@ -104,7 +104,7 @@ class Post extends Component {
                     {this.props.time}
                     <br />
                 </div>
-                <span className="text-white">
+                <div className="text-white" style={{ wordWrap: "break-word" }}>
                     {reactStringReplace(
                         this.props.body,
                         /#(\S*)/g,
@@ -118,7 +118,7 @@ class Post extends Component {
                             </Link>
                         )
                     )}
-                </span>
+                </div>
                 <div className={classes.footer}>
                     <span
                         className={

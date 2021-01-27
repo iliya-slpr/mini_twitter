@@ -2947,8 +2947,11 @@ var Post = /*#__PURE__*/function (_Component) {
               })
             })]
           }), this.props.time, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("br", {})]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
           className: "text-white",
+          style: {
+            wordWrap: "break-word"
+          },
           children: reactStringReplace(this.props.body, /#(\S*)/g, function (match, i) {
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
               to: "/hash/".concat(match),
