@@ -47,14 +47,28 @@ class TweetController extends Controller
         if(is_null($tweet)){
             $result = ["status" => false , "message" => "Tweet Not Found!"];
         }else{
-            $request->user()->tweets()->create([
-                'user_id' => $request->user()->id,
-                'body' => $tweet->body,
-                'retweeted' => $tweet->id
-            ]);
-
-            return response()->json(["status" => true , "message" => "Successfully Retweeted"]);
+            if($tweet->retweeted == 0){
+                $request->user()->tweets()->create([
+                    'user_id' => $request->user()->id,
+                    'body' => $tweet->body,
+                    'retweeted' => $tweet->id
+                ]);
+                $result = ["status" => true , "message" => "Successfully Retweeted"];
+            }else{
+                if($tweet->user_id == $request->user()->id){
+                    $tweet->delete();
+                    $result = ["status" => true , "message" => "Successfully UnRetweeted"];
+                }else{
+                    $request->user()->tweets()->create([
+                        'user_id' => $request->user()->id,
+                        'body' => $tweet->body,
+                        'retweeted' => $tweet->retweet_id
+                    ]);
+                    $result = ["status" => true , "message" => "Successfully Retweeted From Original Tweet"];
+                }
+            }
         }
+        return response()->json($result);
     }
 
     public function delete(Request $request)
