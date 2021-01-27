@@ -46,7 +46,7 @@ class User extends Authenticatable  implements JWTSubject
 
     public function following()
     {
-        return $this->belongsToMany(User::class,"user_follow","user_id","followed_user_id");
+        return $this->belongsToMany(User::class,"user_follow","user_id","followed_user_id")->withTimestamps();
     }
 
     public function followers()
@@ -68,7 +68,7 @@ class User extends Authenticatable  implements JWTSubject
     {
         if(!is_null(auth()->user()))
             return $this->followers()->get()->contains("id" ,"==",auth()->user()->id);
-        return false;    
+        return false;
     }
 
     /**
