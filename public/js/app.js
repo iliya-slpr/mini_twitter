@@ -2574,7 +2574,7 @@ var Hashtag = /*#__PURE__*/function (_Component) {
   _createClass(Hashtag, [{
     key: "logoutHandler",
     value: function logoutHandler() {
-      axios__WEBPACK_IMPORTED_MODULE_2___default().post("api/auth/logout", {
+      axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/auth/logout", {
         headers: {
           "X-Requested-With": "XMLHttpRequest",
           Authorization: "Bearer ".concat(document.cookie.slice(6))
@@ -4068,7 +4068,7 @@ var Profile = /*#__PURE__*/function (_Component) {
   _createClass(Profile, [{
     key: "logoutHandler",
     value: function logoutHandler() {
-      axios__WEBPACK_IMPORTED_MODULE_1___default().post("api/auth/logout", {
+      axios__WEBPACK_IMPORTED_MODULE_1___default().post("/api/auth/logout", {
         headers: {
           "X-Requested-With": "XMLHttpRequest",
           Authorization: "Bearer ".concat(document.cookie.slice(6))

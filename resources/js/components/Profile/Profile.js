@@ -21,7 +21,7 @@ class Profile extends Component {
 
     logoutHandler() {
         axios
-            .post("api/auth/logout", {
+            .post("/api/auth/logout", {
                 headers: {
                     "X-Requested-With": "XMLHttpRequest",
                     Authorization: `Bearer ${document.cookie.slice(6)}`,
