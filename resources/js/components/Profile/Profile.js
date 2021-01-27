@@ -79,9 +79,8 @@ class Profile extends Component {
                 });
         };
         let amIFollowed = this.state.followed;
-        console.log(this.state.user);
         let isMe = this.state.me.id === this.state.user.id;
-        console.log(isMe);
+        console.log(this.state.tweets);
         let listOfTweets = this.state.tweets.map((tweet, index) => (
             <Post
                 key={`${index}m`}
@@ -93,6 +92,7 @@ class Profile extends Component {
                 author={this.state.user.name}
                 reload={reload}
                 isme={isMe}
+                likes_count={tweet.likes_count}
             ></Post>
         ));
 

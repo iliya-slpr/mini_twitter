@@ -16,7 +16,7 @@ class UserController extends Controller
             ->withCount('followers')
             ->first();
 
-        $user->tweets = $user->tweets()->latest()->get();
+        $user->tweets = $user->tweets()->withCount('likes')->latest()->get();
 
         if(is_null($user)){
             $result = ["status" => false , "message" => "User Not Found!"];

@@ -3860,9 +3860,8 @@ var Profile = /*#__PURE__*/function (_Component) {
       };
 
       var amIFollowed = this.state.followed;
-      console.log(this.state.user);
       var isMe = this.state.me.id === this.state.user.id;
-      console.log(isMe);
+      console.log(this.state.tweets);
       var listOfTweets = this.state.tweets.map(function (tweet, index) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Home_HomeTweets_Post_Post__WEBPACK_IMPORTED_MODULE_5__.default, {
           body: tweet.body,
@@ -3872,7 +3871,8 @@ var Profile = /*#__PURE__*/function (_Component) {
           retweeted: tweet.retweeted,
           author: _this3.state.user.name,
           reload: reload,
-          isme: isMe
+          isme: isMe,
+          likes_count: tweet.likes_count
         }, "".concat(index, "m"));
       });
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_bootstrap_Container__WEBPACK_IMPORTED_MODULE_7__.default, {
