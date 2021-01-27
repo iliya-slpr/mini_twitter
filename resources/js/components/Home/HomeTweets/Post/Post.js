@@ -43,6 +43,7 @@ class Post extends Component {
 
         this.props.reload();
     }
+
     likeHandler() {
         this.setState((prevState) => ({ liked: !prevState.liked }));
         axios
@@ -76,6 +77,7 @@ class Post extends Component {
             );
     }
     render() {
+        console.log(this.props.likes_count);
         return (
             <div className={classes.body}>
                 <div className={classes.title}>
@@ -118,6 +120,7 @@ class Post extends Component {
                         onClick={this.likeHandler}
                     >
                         <i className="far fa-heart"></i>
+                        <span> {this.props.likes_count}</span>
                     </span>
                     <span
                         className={classes.retweet}

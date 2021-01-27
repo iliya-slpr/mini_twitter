@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -15,6 +16,20 @@ class Profile extends Component {
         this.followHandler = this.followHandler.bind(this);
         this.state = { user: {}, followed: null, tweets: [], me: {} };
         this.reload = this.reload.bind(this);
+        this.logoutHandler = this.logoutHandler.bind(this);
+    }
+
+    logoutHandler() {
+        axios
+            .post("api/auth/logout", {
+                headers: {
+                    "X-Requested-With": "XMLHttpRequest",
+                    Authorization: `Bearer ${document.cookie.slice(6)}`,
+                },
+            })
+            .then((res) => {
+                window.location.href = "/";
+            });
     }
 
     followHandler() {
@@ -119,7 +134,36 @@ class Profile extends Component {
                     </Col>
                 </Row>
                 <Row>
-                    <Col xs={3}></Col>
+                    <Col xs={3}>
+                        <div className={classes.leftside}>
+                            <h2 className="text-white">
+                                <b>{this.state.me.name}</b>
+                            </h2>
+                            <h6 className="text-white">
+                                Created At:
+                                <Badge variant="secondary">
+                                    {this.state.me.created_at}
+                                </Badge>
+                            </h6>
+
+                            <Link to={`/home`}>
+                                <Button variant="info" className="mb-2">
+                                    Home
+                                </Button>
+                            </Link>
+                            <Link to={`/user/${this.state.me.id}`}>
+                                <Button variant="success" className="mb-2">
+                                    My Profile
+                                </Button>
+                            </Link>
+                            <Button
+                                variant="danger"
+                                onClick={this.logoutHandler}
+                            >
+                                Logout
+                            </Button>
+                        </div>
+                    </Col>
                     <Col xs={6}>
                         {" "}
                         <div>{listOfTweets}</div>

@@ -73,7 +73,7 @@ class Search extends Component {
             <div>
                 <InputGroup onChange={this.changeHandler}>
                     <FormControl
-                        placeholder="Recipient's username"
+                        placeholder="Search"
                         aria-label="Amount (to the nearest dollar)"
                     />
                     <InputGroup.Append>

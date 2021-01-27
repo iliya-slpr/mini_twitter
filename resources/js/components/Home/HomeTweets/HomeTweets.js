@@ -14,7 +14,7 @@ class HomeTweets extends Component {
 
     render() {
         const listOfTweets = this.state.tweets.map((tweet, index) => {
-            console.log(this.props.user.id + "$" + tweet.user.id);
+            console.log(tweet);
             return (
                 <Post
                     key={`${index}m`}
@@ -26,6 +26,7 @@ class HomeTweets extends Component {
                     authorId={tweet.user.id}
                     retweeted={tweet.retweeted}
                     isme={this.props.user.id === tweet.user.id}
+                    likes_count={tweet.likes_count}
                 ></Post>
             );
         });
