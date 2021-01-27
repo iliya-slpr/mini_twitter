@@ -18,6 +18,7 @@ class Post extends Component {
             liked: this.props.liked,
             retweeted: this.props.retweeted,
             me_id: this.props.me_id,
+            likes_count: this.props.likes_count,
         };
         this.likeHandler = this.likeHandler.bind(this);
         this.retweetHandler = this.retweetHandler.bind(this);
@@ -39,25 +40,32 @@ class Post extends Component {
             .then((res) =>
                 swal("success", "tweet successfully deleted", "success")
             );
-        console.log(this.props.reload);
 
         this.props.reload();
     }
 
     likeHandler() {
+        console.log(this.state.likes_count);
         this.setState((prevState) => ({ liked: !prevState.liked }));
-        axios
-            .post(
-                "/api/tweets/likeOrNot",
-                { tweet_id: this.state.tweet_id },
-                {
-                    headers: {
-                        "X-Requested-With": "XMLHttpRequest",
-                        Authorization: `Bearer ${document.cookie.slice(6)}`,
-                    },
-                }
-            )
-            .then((res) => console.log(res));
+        if (!this.state.liked) {
+            this.setState((prevState) => ({
+                likes_count: prevState.likes_count + 1,
+            }));
+        } else {
+            this.setState((prevState) => ({
+                likes_count: prevState.likes_count - 1,
+            }));
+        }
+        axios.post(
+            "/api/tweets/likeOrNot",
+            { tweet_id: this.state.tweet_id },
+            {
+                headers: {
+                    "X-Requested-With": "XMLHttpRequest",
+                    Authorization: `Bearer ${document.cookie.slice(6)}`,
+                },
+            }
+        );
     }
 
     retweetHandler() {
@@ -77,7 +85,6 @@ class Post extends Component {
             );
     }
     render() {
-        console.log(this.props.likes_count);
         return (
             <div className={classes.body}>
                 <div className={classes.title}>
@@ -120,7 +127,7 @@ class Post extends Component {
                         onClick={this.likeHandler}
                     >
                         <i className="far fa-heart"></i>
-                        <span> {this.props.likes_count}</span>
+                        <span> {this.state.likes_count}</span>
                     </span>
                     <span
                         className={classes.retweet}

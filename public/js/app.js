@@ -2852,7 +2852,8 @@ var Post = /*#__PURE__*/function (_Component) {
       tweet_id: _this.props.id,
       liked: _this.props.liked,
       retweeted: _this.props.retweeted,
-      me_id: _this.props.me_id
+      me_id: _this.props.me_id,
+      likes_count: _this.props.likes_count
     };
     _this.likeHandler = _this.likeHandler.bind(_assertThisInitialized(_this));
     _this.retweetHandler = _this.retweetHandler.bind(_assertThisInitialized(_this));
@@ -2873,17 +2874,32 @@ var Post = /*#__PURE__*/function (_Component) {
       }).then(function (res) {
         return sweetalert__WEBPACK_IMPORTED_MODULE_3___default()("success", "tweet successfully deleted", "success");
       });
-      console.log(this.props.reload);
       this.props.reload();
     }
   }, {
     key: "likeHandler",
     value: function likeHandler() {
+      console.log(this.state.likes_count);
       this.setState(function (prevState) {
         return {
           liked: !prevState.liked
         };
       });
+
+      if (!this.state.liked) {
+        this.setState(function (prevState) {
+          return {
+            likes_count: prevState.likes_count + 1
+          };
+        });
+      } else {
+        this.setState(function (prevState) {
+          return {
+            likes_count: prevState.likes_count - 1
+          };
+        });
+      }
+
       axios__WEBPACK_IMPORTED_MODULE_2___default().post("/api/tweets/likeOrNot", {
         tweet_id: this.state.tweet_id
       }, {
@@ -2891,8 +2907,6 @@ var Post = /*#__PURE__*/function (_Component) {
           "X-Requested-With": "XMLHttpRequest",
           Authorization: "Bearer ".concat(document.cookie.slice(6))
         }
-      }).then(function (res) {
-        return console.log(res);
       });
     }
   }, {
@@ -2912,7 +2926,6 @@ var Post = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log(this.props.likes_count);
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
         className: _Post_module_css__WEBPACK_IMPORTED_MODULE_4__.default.body,
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
@@ -2953,7 +2966,7 @@ var Post = /*#__PURE__*/function (_Component) {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("i", {
               className: "far fa-heart"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("span", {
-              children: [" ", this.props.likes_count]
+              children: [" ", this.state.likes_count]
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
             className: _Post_module_css__WEBPACK_IMPORTED_MODULE_4__.default.retweet,
