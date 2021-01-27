@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
@@ -57,5 +58,27 @@ class UserController extends Controller
 
         return response()->json($result);
     }
+    public function getRecentActivities()
+    {
+        $activities = collect([]);
 
+        //follows
+        $u = DB::table('user_follow')->where('followed_user_id' , auth('api')->user()->id)->get();;
+        foreach ($u as $item)
+            $activities->push(["type"=>"follow" , "user_id" => $item->user_id , "date_time" => $item->created_at]);
+
+        //likes
+        $tweetIds = auth('api')->user()->tweets()->pluck('id');
+        $l = DB::table('tweet_like')->whereIn('tweet_id' , $tweetIds)->get();
+        foreach ($l as $item)
+            $activities->push(["type"=>"like" , "user_id" => $item->user_id , "tweet_id" => $item->tweet_id , "date_time" => $item->created_at]);
+
+        //retweets:
+        $r = DB::table('tweets')->whereIn('retweeted' , $tweetIds)->get();
+        foreach ($r as $item)
+            $activities->push(["type"=>"retweet" , "user_id" => $item->user_id ,"tweet_id" => $item->retweeted, "date_time" => $item->created_at]);
+
+        $sorted = $activities->sortByDesc('date_time');
+        return response()->json(["status" => true , "data" => ["recent_activities" =>$sorted->values()->all()]]);
+    }
 }
