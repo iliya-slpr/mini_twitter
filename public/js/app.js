@@ -3455,34 +3455,63 @@ var Dialog = /*#__PURE__*/function (_Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      newTweetText: ""
+      newTweetText: "",
+      hasError: true,
+      errors: "Tweet is Empty"
     };
     _this.submitHandler = _this.submitHandler.bind(_assertThisInitialized(_this));
+    _this.changeHanlder = _this.changeHanlder.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(Dialog, [{
+    key: "changeHanlder",
+    value: function changeHanlder(e) {
+      this.setState({
+        newTweetText: e.target.value
+      });
+
+      if (e.target.value.length == 0) {
+        this.setState({
+          errors: "Tweet is Empty",
+          hasErrors: true
+        });
+      } else if (e.target.value.length > 250) {
+        this.setState({
+          errors: "Your Tweet is Longer than 250 Characters",
+          hasError: true
+        });
+      } else if (e.target.value.length < 250) {
+        this.setState({
+          errors: "",
+          hasError: false
+        });
+      }
+    }
+  }, {
     key: "submitHandler",
     value: function submitHandler() {
-      axios.post("/api/tweets/create", {
-        body: this.state.newTweetText
-      }, {
-        headers: {
-          "X-Requested-With": "XMLHttpRequest",
-          Authorization: "Bearer ".concat(document.cookie.slice(6))
-        }
-      }).then(function (res) {
-        if (res.data.status) swal("Succesful", "Succesfully tweeted", "success");else {
-          swal("Error", "An Error occured", "success");
-        }
-      });
-      this.props.onHide();
+      console.log(this.state.hasError);
+
+      if (!this.state.hasError) {
+        axios.post("/api/tweets/create", {
+          body: this.state.newTweetText
+        }, {
+          headers: {
+            "X-Requested-With": "XMLHttpRequest",
+            Authorization: "Bearer ".concat(document.cookie.slice(6))
+          }
+        }).then(function (res) {
+          if (res.data.status) swal("Succesful", "Succesfully tweeted", "success");else {
+            swal("Error", "An Error occured", "success");
+          }
+        });
+        this.props.onHide();
+      }
     }
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
-
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(react_bootstrap_Modal__WEBPACK_IMPORTED_MODULE_2__.default, _objectSpread(_objectSpread({}, this.props), {}, {
         bsSize: "large",
         "aria-labelledby": "contained-modal-title-lg",
@@ -3504,11 +3533,9 @@ var Dialog = /*#__PURE__*/function (_Component) {
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_3__.default.Control, {
                 as: "textarea",
                 rows: 5,
-                onChange: function onChange(e) {
-                  _this2.setState({
-                    newTweetText: e.target.value
-                  });
-                }
+                onChange: this.changeHanlder
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
+                children: this.state.errors
               })]
             })
           })

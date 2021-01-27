@@ -5,29 +5,55 @@ import Form from "react-bootstrap/Form";
 class Dialog extends Component {
     constructor(props) {
         super(props);
-        this.state = { newTweetText: "" };
+        this.state = {
+            newTweetText: "",
+            hasError: true,
+            errors: "Tweet is Empty",
+        };
         this.submitHandler = this.submitHandler.bind(this);
+        this.changeHanlder = this.changeHanlder.bind(this);
+    }
+    changeHanlder(e) {
+        this.setState({
+            newTweetText: e.target.value,
+        });
+        if (e.target.value.length == 0) {
+            this.setState({ errors: "Tweet is Empty", hasErrors: true });
+        } else if (e.target.value.length > 250) {
+            this.setState({
+                errors: "Your Tweet is Longer than 250 Characters",
+                hasError: true,
+            });
+        } else if (e.target.value.length < 250) {
+            this.setState({
+                errors: "",
+                hasError: false,
+            });
+        }
     }
     submitHandler() {
-        axios
-            .post(
-                "/api/tweets/create",
-                { body: this.state.newTweetText },
-                {
-                    headers: {
-                        "X-Requested-With": "XMLHttpRequest",
-                        Authorization: `Bearer ${document.cookie.slice(6)}`,
-                    },
-                }
-            )
-            .then((res) => {
-                if (res.data.status)
-                    swal("Succesful", "Succesfully tweeted", "success");
-                else{
-                    swal("Error", "An Error occured", "success"); 
-                }
-            });
-        this.props.onHide();
+        console.log(this.state.hasError);
+        if (!this.state.hasError) {
+            axios
+                .post(
+                    "/api/tweets/create",
+                    { body: this.state.newTweetText },
+                    {
+                        headers: {
+                            "X-Requested-With": "XMLHttpRequest",
+                            Authorization: `Bearer ${document.cookie.slice(6)}`,
+                        },
+                    }
+                )
+                .then((res) => {
+                    if (res.data.status)
+                        swal("Succesful", "Succesfully tweeted", "success");
+                    else {
+                        swal("Error", "An Error occured", "success");
+                    }
+                });
+            this.props.onHide();
+        }
     }
     render() {
         return (
@@ -51,12 +77,9 @@ class Dialog extends Component {
                             <Form.Control
                                 as="textarea"
                                 rows={5}
-                                onChange={(e) => {
-                                    this.setState({
-                                        newTweetText: e.target.value,
-                                    });
-                                }}
+                                onChange={this.changeHanlder}
                             />
+                            <span>{this.state.errors}</span>
                         </Form.Group>
                     </Form>
                 </Modal.Body>
